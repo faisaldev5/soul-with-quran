@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SoulWithQuran
 
-## Getting Started
+Premium tutor-led online Quran education marketing website. Built to establish trust, explain courses, introduce the tutor, and convert visitors into free-trial bookings.
 
-First, run the development server:
+## Project Stage
+
+**Initial foundation** — the project skeleton is in place. Design assets and section implementation will follow.
+
+## Technology Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- ESLint
+- Turbopack (development)
+- pnpm
+
+## Local Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Start development server (Turbopack)
 pnpm dev
-# or
-bun dev
+
+# Lint
+pnpm lint
+
+# Production build
+pnpm build
+
+# Start production server
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folder Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+public/
+├── brand/              # Logo, favicon assets
+├── images/
+│   ├── homepage/
+│   ├── tutor/
+│   ├── courses/
+│   ├── testimonials/
+│   └── references/     # Design reference images
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+src/
+├── app/                # Routing, layouts, metadata, page composition
+├── components/
+│   ├── layout/         # Header, footer, container
+│   ├── sections/       # Full page sections (Hero, Courses, etc.)
+│   └── ui/             # Reusable primitives (Button, Card, etc.)
+├── data/               # Structured content (nav, courses, FAQs)
+├── lib/                # Shared utilities and configuration
+├── types/              # Shared TypeScript types
+└── styles/             # Optional non-global styling resources
 
-## Learn More
+docs/
+├── brand/              # Brand guidelines
+├── design/             # Design documents
+└── project/            # Project documentation
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Next Steps
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Design assets and project documentation will be added next.
+- GitHub remote connection will be handled manually.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Key Files
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `AGENTS.md` — Engineering rules for AI coding agents
+- `DESIGN.md` — Design system specification (pending)
+- `.env.example` — Environment variable template
