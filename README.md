@@ -4,7 +4,7 @@ Premium tutor-led online Quran education marketing website. Built to establish t
 
 ## Project Stage
 
-**Initial foundation** — the project skeleton is in place. Design assets and section implementation will follow.
+**Repository Foundation complete** — Phase 0 is complete. The initialized Next.js foundation, approved project and design documents, brand assets, homepage imagery, and design references are present. The repository is being prepared for Phase 1 — Design System. Actual page implementation has not started; the homepage remains a temporary foundation page.
 
 ## Technology Stack
 
@@ -39,13 +39,14 @@ pnpm start
 
 ```
 public/
-├── brand/              # Logo, favicon assets
+├── brand/              # Approved production brand assets
+│   ├── logos/
+│   └── marks/
 ├── images/
-│   ├── homepage/
+│   ├── homepage/       # Homepage production images
 │   ├── tutor/
 │   ├── courses/
-│   ├── testimonials/
-│   └── references/     # Design reference images
+│   └── testimonials/
 
 src/
 ├── app/                # Routing, layouts, metadata, page composition
@@ -60,17 +61,28 @@ src/
 
 docs/
 ├── brand/              # Brand guidelines
-├── design/             # Design documents
+│   └── source boards and asset guidance
+├── design/             # Design documents and references
+│   └── references/
 └── project/            # Project documentation
+
+.agents/
+└── skills/
+    └── soulwithquran-ui/
 ```
 
 ## Next Steps
 
-- Design assets and project documentation will be added next.
-- GitHub remote connection will be handled manually.
+- Review and commit the repository-foundation corrections.
+- Begin Phase 1 — Design System after review.
+- Keep Git commits and pushes manual.
 
 ## Key Files
 
 - `AGENTS.md` — Engineering rules for AI coding agents
-- `DESIGN.md` — Design system specification (pending)
+- `DESIGN.md` — Approved design-system specification
+- `docs/project/PROJECT.md` — Product scope and teaching model
+- `docs/project/ROADMAP.md` — Approved implementation sequence
+- `docs/project/INFORMATION_ARCHITECTURE.md` — Approved structural blueprint
+- `.agents/skills/soulwithquran-ui/SKILL.md` — Repository UI workflow
 - `.env.example` — Environment variable template
