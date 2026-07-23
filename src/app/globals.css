@@ -105,6 +105,7 @@
   --swq-focus-offset: var(--swq-surface);
 
   --swq-duration-micro: 175ms;
+  --swq-duration-toggle: 200ms;
   --swq-duration-normal: 225ms;
   --swq-duration-slow: 275ms;
   --swq-ease-in: cubic-bezier(0.4, 0, 1, 1);
@@ -207,6 +208,7 @@
   --spacing-section-compact-tablet: var(--swq-section-compact-tablet);
   --spacing-section-compact-desktop: var(--swq-section-compact-desktop);
   --transition-duration-micro: var(--swq-duration-micro);
+  --transition-duration-toggle: var(--swq-duration-toggle);
   --transition-duration-normal: var(--swq-duration-normal);
   --transition-duration-slow: var(--swq-duration-slow);
   --ease-swq-in: var(--swq-ease-in);

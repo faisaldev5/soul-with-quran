@@ -103,16 +103,16 @@ The repository foundation is in place. It contains a Next.js App Router applicat
 - Design decisions and brand tokens are documented, but the design system has not yet been implemented as reusable code.
 - The public marketing pages, forms, blog, SEO system, and production polish are not yet implemented.
 - No database, authentication, payment system, student dashboard, LMS, CMS, or multi-tenant architecture should be introduced for the MVP.
-- Phase 0 is complete. Phase 1 is the next active implementation phase when development begins.
+- Phase 0 is complete. Phase 1 and Phase 2 are complete after implementation and review approval. Phase 3 is the active implementation phase.
 
 ## 4. Milestone Overview
 
 | Phase | Name | Priority | Estimated Effort | Status | Blocking / Dependencies |
 | --- | --- | --- | --- | --- | --- |
 | 0 | Repository Foundation | Critical | Small | Completed | None; repository and source documents established. |
-| 1 | Design System | Critical | Large | Ready | Phase 0, approved `DESIGN.md`, and available brand assets. |
-| 2 | Core Layout | High | Medium | Pending | Phase 1 and approved navigation/content structure. |
-| 3 | Homepage | Critical | Large | Pending | Phases 1–2, approved homepage copy, tutor content, and imagery. |
+| 1 | Design System | Critical | Large | Completed | Phase 0, approved `DESIGN.md`, available brand assets, and implemented primitives. |
+| 2 | Core Layout | High | Medium | Completed | Phase 1 and approved navigation/content structure. |
+| 3 | Homepage | Critical | Large | In Progress | Phases 1–2, approved homepage copy, tutor content, and imagery. |
 | 4 | Courses | High | Large | Pending | Phases 1–2, course content, and approved course assets. |
 | 5 | Tutor | High | Medium | Pending | Phases 1–2 and verified tutor copy, qualifications, and photography. |
 | 6 | Free Trial | Critical | Large | Pending | Phase 2, approved form fields, recipient workflow, Resend, and Turnstile decisions. |
@@ -177,7 +177,7 @@ None.
 **Estimated Effort:** Large
 **Blocking:** Phase 0 must be complete; `DESIGN.md` must be approved; approved logo and image assets must be available before implementing asset-dependent primitives.
 
-**Status:** Ready
+**Status:** Completed
 
 ### Purpose
 
@@ -230,7 +230,7 @@ Turn the approved visual direction into a small, reusable, accessible foundation
 **Estimated Effort:** Medium
 **Blocking:** Phase 1 must be complete; navigation labels, primary conversion destination, legal-link requirements, and approved logo assets must be known.
 
-**Status:** Pending
+**Status:** Completed
 
 ### Purpose
 
@@ -280,7 +280,7 @@ Establish the site-wide structure that every public page can reuse: header, navi
 **Estimated Effort:** Large
 **Blocking:** Phases 1–2 must be complete; approved homepage copy, tutor information, course summaries, testimonials, pricing/trial decisions, and suitable imagery must be available.
 
-**Status:** Pending
+**Status:** In Progress
 
 ### Purpose
 

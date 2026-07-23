@@ -27,6 +27,13 @@ const variantClasses: Record<ButtonVariant, string> = {
     "bg-transparent text-primary-700 underline-offset-4 hover:underline active:text-primary-800",
 };
 
+export function buttonClassName(
+  variant: ButtonVariant = "primary",
+  className?: string,
+) {
+  return buttonClasses({ variant, className });
+}
+
 function buttonClasses({
   variant = "primary",
   className,

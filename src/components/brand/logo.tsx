@@ -9,6 +9,7 @@ export type LogoProps = {
   size?: LogoSize;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 };
 
 const logoSizes: Record<LogoSize, { width: number; height: number; className: string }> = {
@@ -22,6 +23,7 @@ export function Logo({
   className,
   priority = false,
   size = "md",
+  sizes = "(min-width: 1024px) 216px, 168px",
 }: LogoProps) {
   const dimensions = logoSizes[size];
 
@@ -32,7 +34,7 @@ export function Logo({
       width={dimensions.width}
       height={dimensions.height}
       priority={priority}
-      sizes="(min-width: 1024px) 216px, 168px"
+      sizes={sizes}
       className={cn(dimensions.className, className)}
     />
   );

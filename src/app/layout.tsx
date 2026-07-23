@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+
+import { SiteShell } from "@/components/layout/site-shell";
+
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -33,7 +36,7 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
