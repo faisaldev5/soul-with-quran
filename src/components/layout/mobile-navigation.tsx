@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { createPortal } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button";
@@ -77,7 +79,7 @@ export function MobileNavigation() {
       <button
         ref={menuButtonRef}
         type="button"
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-medium border border-border bg-surface text-primary-700 lg:hidden"
+        className="relative z-header inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-medium border border-border bg-surface text-primary-700 lg:hidden"
         aria-controls={mobileMenuId}
         aria-expanded={isOpen}
         aria-label={
@@ -85,64 +87,52 @@ export function MobileNavigation() {
         }
         onClick={() => setIsOpen((open) => !open)}
       >
-        <span aria-hidden="true" className="relative size-5">
-          <span
-            className={cn(
-              "absolute left-0 top-1 h-0.5 w-5 rounded-full bg-current transition-[transform,top] duration-toggle ease-swq-out motion-reduce:transition-none",
-              isOpen && "top-1/2 -translate-y-1/2 rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rounded-full bg-current transition-[opacity,transform] duration-toggle ease-swq-out motion-reduce:transition-none",
-              isOpen && "scale-x-0 opacity-0",
-            )}
-          />
-          <span
-            className={cn(
-              "absolute bottom-1 left-0 h-0.5 w-5 rounded-full bg-current transition-[bottom,transform] duration-toggle ease-swq-out motion-reduce:transition-none",
-              isOpen && "bottom-1/2 -translate-y-1/2 -rotate-45",
-            )}
-          />
-        </span>
+        {isOpen ? (
+          <X aria-hidden="true" className="size-5" strokeWidth={2} />
+        ) : (
+          <Menu aria-hidden="true" className="size-5" strokeWidth={2} />
+        )}
       </button>
 
-      {isOpen ? (
-        <div
-          ref={panelRef}
-          id={mobileMenuId}
-          role="dialog"
-          aria-label="Mobile navigation"
-          aria-modal="true"
-          className="fixed inset-x-0 bottom-0 top-18 z-menu overflow-y-auto border-t border-border bg-background lg:hidden"
-        >
-          <Container className="min-h-full py-4">
-            <nav aria-label="Mobile primary navigation" className="py-8">
-              <ul className="space-y-2">
-                {primaryNavigation.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="flex min-h-11 items-center rounded-medium px-3 text-lg font-medium leading-7 text-text-primary hover:bg-primary-50 hover:text-primary-700"
-                      onClick={closeMenu}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+      {isOpen && typeof document !== "undefined"
+        ? createPortal(
+            <div
+              ref={panelRef}
+              id={mobileMenuId}
+              role="dialog"
+              aria-label="Mobile navigation"
+              aria-modal="true"
+              className="fixed inset-x-0 bottom-0 top-18 z-dialog isolate overflow-y-auto overscroll-contain border-t border-border bg-background shadow-overlay lg:hidden"
+            >
+              <Container className="min-h-full py-4">
+                <nav aria-label="Mobile primary navigation" className="py-8">
+                  <ul className="space-y-2">
+                    {primaryNavigation.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="flex min-h-11 items-center rounded-medium px-3 text-lg font-medium leading-7 text-text-primary hover:bg-primary-50 hover:text-primary-700"
+                          onClick={closeMenu}
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
-              <Link
-                href="/free-trial"
-                className={cn(buttonClassName("primary"), "mt-8 w-full")}
-                onClick={closeMenu}
-              >
-                Book a free trial
-              </Link>
-            </nav>
-          </Container>
-        </div>
-      ) : null}
+                  <Link
+                    href="/free-trial"
+                    className={cn(buttonClassName("primary"), "mt-8 w-full")}
+                    onClick={closeMenu}
+                  >
+                    Book a free trial
+                  </Link>
+                </nav>
+              </Container>
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   );
 }
