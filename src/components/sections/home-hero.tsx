@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Clock3, List } from "lucide-react";
+import { ArrowRight, Check, Clock3, List, Star } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -20,6 +20,12 @@ const factCards = [
     description: "Built around your pace",
     icon: List,
   },
+] as const;
+
+const proofAvatars = [
+  "/images/homepage/tutor-portrait.jpg",
+  "/images/homepage/child-learning-quran-online.jpg",
+  "/images/homepage/quran-study-desk.jpg",
 ] as const;
 
 type FactCardProps = {
@@ -58,6 +64,69 @@ function FactCard({
   );
 }
 
+function HeroProof() {
+  return (
+    <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
+      <div className="flex items-center gap-3">
+        <div aria-hidden="true" className="flex shrink-0 -space-x-2">
+          {proofAvatars.map((src) => (
+            <span
+              key={src}
+              className="relative size-8 overflow-hidden rounded-full border-2 border-background"
+            >
+              <Image
+                src={src}
+                alt=""
+                fill
+                sizes="32px"
+                className="object-cover"
+              />
+            </span>
+          ))}
+        </div>
+        <div>
+          <div
+            role="img"
+            aria-label="Five-star rating"
+            className="flex items-center gap-0.5 text-gold-500"
+          >
+            {Array.from({ length: 5 }, (_, index) => (
+              <Star
+                key={index}
+                aria-hidden="true"
+                className="size-3.5 fill-current"
+                strokeWidth={1.5}
+              />
+            ))}
+          </div>
+          <p className="mt-0.5 text-xs leading-5 text-text-secondary">
+            500+ families across 5 countries
+          </p>
+        </div>
+      </div>
+
+      <span aria-hidden="true" className="hidden h-10 w-px bg-border sm:block" />
+
+      <div className="flex items-center gap-3">
+        <span
+          aria-hidden="true"
+          className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-700"
+        >
+          <Check className="size-4" strokeWidth={1.75} />
+        </span>
+        <div>
+          <p className="text-sm font-semibold leading-5 text-text-primary">
+            Certified Ijazah tutor
+          </p>
+          <p className="mt-0.5 text-xs leading-5 text-text-secondary">
+            12+ years of experience
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HomeHero() {
   return (
     <Section
@@ -76,7 +145,7 @@ export function HomeHero() {
       />
 
       <Container className="relative">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:items-start lg:gap-12 xl:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:items-center lg:gap-12 xl:gap-16">
           <div className="min-w-0 max-w-2xl lg:pt-2">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sage-700">
               <span aria-hidden="true" className="text-gold-500">
@@ -113,6 +182,7 @@ export function HomeHero() {
                 Explore courses
               </ButtonLink>
             </div>
+            <HeroProof />
           </div>
 
           <div className="relative mx-auto w-full max-w-[38rem] overflow-visible pb-14 min-[375px]:pb-16 md:pb-20 lg:ml-auto lg:pb-0">
