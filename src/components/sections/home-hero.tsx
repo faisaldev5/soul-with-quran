@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Check, Clock3, List, Star } from "lucide-react";
+import { ArrowRight, Clock3, List } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -22,12 +22,6 @@ const factCards = [
   },
 ] as const;
 
-const proofAvatars = [
-  "/images/homepage/tutor-portrait.jpg",
-  "/images/homepage/child-learning-quran-online.jpg",
-  "/images/homepage/quran-study-desk.jpg",
-] as const;
-
 type FactCardProps = {
   title: string;
   description: string;
@@ -44,7 +38,7 @@ function FactCard({
   return (
     <Card
       as="div"
-      className={cn("relative z-10 flex max-w-[15rem] gap-3 p-4", className)}
+      className={cn("z-10 flex max-w-[15rem] gap-3 p-4", className)}
     >
       <span
         aria-hidden="true"
@@ -53,80 +47,14 @@ function FactCard({
         <Icon className="size-4" strokeWidth={1.75} />
       </span>
       <div>
-        <p className="text-sm font-semibold leading-5 text-text-primary">
+        <p className="text-[0.9375rem] font-semibold leading-5 text-text-primary md:text-sm">
           {title}
         </p>
-        <p className="mt-1 text-xs leading-5 text-text-secondary">
+        <p className="mt-1 text-[0.8125rem] leading-5 text-text-secondary md:text-xs">
           {description}
         </p>
       </div>
     </Card>
-  );
-}
-
-function HeroProof() {
-  return (
-    <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
-      <div className="flex items-center gap-3">
-        <div
-          aria-hidden="true"
-          className="flex shrink-0 -space-x-2"
-        >
-          {proofAvatars.map((src) => (
-            <span
-              key={src}
-              className="relative size-8 overflow-hidden rounded-full border-2 border-background"
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="32px"
-                className="object-cover"
-              />
-            </span>
-          ))}
-        </div>
-        <div>
-          <div
-            role="img"
-            aria-label="Five-star rating"
-            className="flex items-center gap-0.5 text-gold-500"
-          >
-            {Array.from({ length: 5 }, (_, index) => (
-              <Star
-                key={index}
-                aria-hidden="true"
-                className="size-3.5 fill-current"
-                strokeWidth={1.5}
-              />
-            ))}
-          </div>
-          <p className="mt-0.5 text-xs leading-5 text-text-secondary">
-            500+ families across 5 countries
-          </p>
-        </div>
-      </div>
-
-      <span aria-hidden="true" className="hidden h-10 w-px bg-border sm:block" />
-
-      <div className="flex items-center gap-3">
-        <span
-          aria-hidden="true"
-          className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-700"
-        >
-          <Check className="size-4" strokeWidth={1.75} />
-        </span>
-        <div>
-          <p className="text-sm font-semibold leading-5 text-text-primary">
-            Certified Ijazah tutor
-          </p>
-          <p className="mt-0.5 text-xs leading-5 text-text-secondary">
-            12+ years of experience
-          </p>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -185,10 +113,9 @@ export function HomeHero() {
                 Explore courses
               </ButtonLink>
             </div>
-            <HeroProof />
           </div>
 
-          <div className="relative mx-auto w-full max-w-[38rem] overflow-visible lg:ml-auto">
+          <div className="relative mx-auto w-full max-w-[38rem] overflow-visible pb-14 min-[375px]:pb-16 md:pb-20 lg:ml-auto lg:pb-0">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-4 -z-10 rounded-large bg-gold-100/25 blur-2xl"
@@ -204,16 +131,14 @@ export function HomeHero() {
               />
             </div>
 
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:mt-0 lg:block">
-              <FactCard
-                {...factCards[0]}
-                className="lg:absolute lg:-right-8 lg:top-[14%] xl:-right-10 xl:top-[15%]"
-              />
-              <FactCard
-                {...factCards[1]}
-                className="lg:absolute lg:bottom-[10%] lg:-left-10 xl:bottom-[12%] xl:-left-12"
-              />
-            </div>
+            <FactCard
+              {...factCards[0]}
+              className="!absolute !z-20 right-1 top-[12%] w-[12.8rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:right-2 min-[375px]:w-[14rem] md:right-2 md:top-[10%] md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-right-8 lg:top-[14%] lg:!z-10 xl:-right-10 xl:top-[15%]"
+            />
+            <FactCard
+              {...factCards[1]}
+              className="!absolute !z-20 bottom-6 left-[10px] w-[13.5rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:bottom-7 min-[375px]:left-4 min-[375px]:w-[14.5rem] md:bottom-10 md:left-4 md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-left-10 lg:!z-10 lg:bottom-[10%] xl:-left-12 xl:bottom-[12%]"
+            />
           </div>
         </div>
       </Container>
