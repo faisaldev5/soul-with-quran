@@ -1,4 +1,5 @@
 import { CoursesOverview } from "@/components/sections/courses-overview";
+import { FinalTrialCta } from "@/components/sections/final-trial-cta";
 import { HomeHero } from "@/components/sections/home-hero";
 import { HowLearningWorks } from "@/components/sections/how-learning-works";
 import { HomeFaq } from "@/components/sections/home-faq";
@@ -18,6 +19,7 @@ export default function Home() {
       <HomeTestimonials />
       <PricingTrial />
       <HomeFaq />
+      <FinalTrialCta />
     </>
   );
 }
