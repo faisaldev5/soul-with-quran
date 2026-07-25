@@ -20,6 +20,8 @@ Raster-wrapper SVGs are not approved as genuine vector assets. Until true vector
 | `public/images/homepage/child-learning-quran-online.jpg` | Homepage photograph | Learner or course-support section | Approved | Show the learner and study materials without inventing identity or relationship claims. |
 | `public/images/homepage/quran-study-desk.jpg` | Homepage photograph | Supporting study/process section | Approved | Quiet Quran and desk scene; use as supporting imagery. |
 | `public/images/homepage/tutor-portrait.jpg` | Homepage photograph | Tutor introduction | Approved | Tutor portrait; alt text should describe the visible portrait without adding qualifications. |
+| `public/images/tutor/tutor.webp` | Tutor portrait | Meet Your Quran Tutor section | Temporary approved production asset | Use as the responsive tutor portrait with concise, non-identifying alt text. |
+| `public/images/tutor/meet-tutor-bg.png` | Decorative background motif | Meet Your Quran Tutor section | Approved decorative asset | Use once at low opacity behind the portrait; decorative only. |
 | `docs/brand/SoulWithQuran_Brand_Identity_Guide_v1.0.docx.md` | Brand source-board export | Brand reference | Reference only | Markdown export of the supplied brand guide. |
 | `docs/brand/SoulWithQuran_Design_Decision_Sheet_v1.0.docx.md` | Design source-board export | Brand and UI reference | Reference only | Markdown export of the supplied design decision sheet. |
 | `docs/design/references/homepage.png` | Design reference screenshot | Layout and composition reference | Reference only | Inspiration only; do not copy its complete layout, copy, imagery, or styling. |
