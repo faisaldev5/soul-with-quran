@@ -26,7 +26,7 @@ export function HowLearningWorks() {
       aria-labelledby="how-learning-works-heading"
       surface="white"
       withContainer={false}
-      className="border-t border-border"
+      className="isolate border-t border-border"
     >
       <Container>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
@@ -59,7 +59,7 @@ export function HowLearningWorks() {
 
             return (
               <li key={step.number} className="relative">
-              <article className="group relative z-10 flex min-h-full flex-col rounded-large border border-border bg-background p-8 shadow-small transition-[border-color,box-shadow,transform] duration-normal ease-swq-out hover:-translate-y-1 hover:border-primary-200 hover:shadow-hover motion-reduce:transition-none lg:min-h-[22rem]">
+              <article className="group relative z-floating flex min-h-full flex-col rounded-large border border-border bg-background p-8 shadow-small transition-[border-color,box-shadow,transform] duration-normal ease-swq-out hover:-translate-y-1 hover:border-primary-200 hover:shadow-hover motion-reduce:transition-none lg:min-h-[22rem]">
                   <div className="flex items-center justify-between gap-4">
                     <span className="flex size-11 items-center justify-center rounded-full bg-primary-50 text-primary-700 transition-colors duration-normal ease-swq-out group-hover:bg-primary-600 group-hover:text-white motion-reduce:transition-none">
                       <Icon

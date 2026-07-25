@@ -104,6 +104,10 @@
   --swq-focus-ring-on-navy: var(--swq-gold-300);
   --swq-focus-offset: var(--swq-surface);
 
+  --swq-site-header-height: 4.5rem;
+  --swq-sticky-content-offset: calc(var(--swq-site-header-height) + 1rem);
+  --swq-scroll-margin-top: var(--swq-sticky-content-offset);
+
   --swq-duration-micro: 175ms;
   --swq-duration-toggle: 200ms;
   --swq-duration-normal: 225ms;
@@ -112,6 +116,7 @@
   --swq-ease-out: cubic-bezier(0, 0, 0.2, 1);
 
   --swq-z-base: 0;
+  --swq-z-floating: 10;
   --swq-z-header: 20;
   --swq-z-menu: 40;
   --swq-z-backdrop: 50;
@@ -214,6 +219,7 @@
   --ease-swq-in: var(--swq-ease-in);
   --ease-swq-out: var(--swq-ease-out);
   --z-base: var(--swq-z-base);
+  --z-floating: var(--swq-z-floating);
   --z-header: var(--swq-z-header);
   --z-menu: var(--swq-z-menu);
   --z-backdrop: var(--swq-z-backdrop);
@@ -235,7 +241,7 @@
 
   body {
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--swq-background);
     color: var(--swq-text-primary);
     font-family: var(--font-inter), Arial, Helvetica, sans-serif;
@@ -328,6 +334,10 @@
     outline-offset: 2px;
   }
 
+  :where(section[id], main[id], h1[id], h2[id], h3[id]) {
+    scroll-margin-top: var(--swq-scroll-margin-top);
+  }
+
   ::selection {
     background: var(--swq-primary-100);
     color: var(--swq-primary-900);
@@ -339,6 +349,36 @@
 
   [data-surface="navy"] :where(a, button, input, textarea, select, summary):focus-visible {
     outline-color: var(--swq-focus-ring-on-navy);
+  }
+}
+
+@layer utilities {
+  .z-base {
+    z-index: var(--swq-z-base);
+  }
+
+  .z-floating {
+    z-index: var(--swq-z-floating);
+  }
+
+  .z-header {
+    z-index: var(--swq-z-header);
+  }
+
+  .z-menu {
+    z-index: var(--swq-z-menu);
+  }
+
+  .z-backdrop {
+    z-index: var(--swq-z-backdrop);
+  }
+
+  .z-dialog {
+    z-index: var(--swq-z-dialog);
+  }
+
+  .z-toast {
+    z-index: var(--swq-z-toast);
   }
 }
 
@@ -450,6 +490,16 @@ body {
 .swq-testimonial-row:hover .swq-testimonial-track,
 .swq-testimonial-row:focus-within .swq-testimonial-track {
   animation-play-state: paused;
+}
+
+@media (max-width: 767px) {
+  .swq-testimonial-track {
+    animation-duration: 52s;
+  }
+
+  .swq-testimonial-track--slow {
+    animation-duration: 58s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

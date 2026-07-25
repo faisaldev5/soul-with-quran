@@ -102,7 +102,7 @@ export function MobileNavigation() {
               role="dialog"
               aria-label="Mobile navigation"
               aria-modal="true"
-              className="fixed inset-x-0 bottom-0 top-18 z-dialog isolate overflow-y-auto overscroll-contain border-t border-border bg-background shadow-overlay lg:hidden"
+              className="fixed inset-x-0 bottom-0 top-[var(--swq-site-header-height)] z-dialog isolate overflow-y-auto overscroll-contain border-t border-border bg-background shadow-overlay lg:hidden"
             >
               <Container className="min-h-full py-4">
                 <nav aria-label="Mobile primary navigation" className="py-8">

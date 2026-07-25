@@ -8,8 +8,8 @@ import { primaryNavigation } from "@/data/navigation";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-header border-b border-border bg-background">
-      <Container className="flex min-h-18 items-center justify-between gap-6">
+    <header className="sticky top-0 z-header isolate border-b border-border bg-background">
+      <Container className="flex min-h-[var(--swq-site-header-height)] items-center justify-between gap-6">
         <Link href="/" aria-label="SoulWithQuran home" className="shrink-0">
           <Logo
             size="md"

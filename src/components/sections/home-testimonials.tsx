@@ -76,53 +76,59 @@ function TestimonialCard({
   return (
     <article
       tabIndex={decorative ? undefined : 0}
-      className="flex min-h-[18rem] w-[18rem] shrink-0 flex-col rounded-large border border-primary-400 bg-primary-600 p-6 text-white shadow-small transition-[border-color,box-shadow] duration-normal ease-swq-out hover:border-gold-400 hover:shadow-hover focus-visible:outline-3 focus-visible:outline-gold-300 focus-visible:outline-offset-2 motion-reduce:transition-none sm:w-[20rem] lg:w-[21rem]"
+      className="flex min-h-[16rem] w-[clamp(15.75rem,calc(100vw-100px),18rem)] shrink-0 flex-col rounded-large border border-primary-400 bg-primary-600 p-5 text-white shadow-small transition-[border-color,box-shadow] duration-normal ease-swq-out hover:border-gold-400 hover:shadow-hover focus-visible:outline-3 focus-visible:outline-gold-300 focus-visible:outline-offset-2 motion-reduce:transition-none md:min-h-[18rem] md:w-[20rem] md:p-6 lg:w-[21rem]"
     >
       {ratingLabel && rating ? (
         <div
           aria-label={ratingLabel}
-          className="flex items-center gap-2"
+          className="flex items-center gap-1.5 md:gap-2"
           role="img"
         >
-          <span aria-hidden="true" className="flex gap-0.5 text-gold-400">
+          <span
+            aria-hidden="true"
+            className="flex gap-0.5 text-[13px] text-gold-400 md:text-inherit"
+          >
             {Array.from({ length: 5 }, (_, index) => (
               <span key={index} aria-hidden="true">
                 ★
               </span>
             ))}
           </span>
-          <span aria-hidden="true" className="text-xs font-semibold text-white">
+          <span
+            aria-hidden="true"
+            className="text-[13px] font-semibold text-white md:text-xs"
+          >
             {rating.toFixed(1)}
           </span>
         </div>
       ) : null}
 
-      <blockquote className="mt-5 flex-1 text-base leading-7 text-primary-100">
+      <blockquote className="mt-4 flex-1 text-base leading-[1.6] text-primary-100 md:mt-5 md:leading-7">
         <p>“{testimonial.quote}”</p>
       </blockquote>
 
-      <div className="mt-6 flex flex-col gap-4 border-t border-primary-400 pt-5 sm:flex-row sm:items-end sm:justify-between">
-        <div className="flex min-w-0 items-center gap-3">
+      <div className="mt-4 flex flex-col gap-3 border-t border-primary-400 pt-4 md:mt-6 md:gap-4 md:pt-5 md:flex-row md:items-end md:justify-between">
+        <div className="flex min-w-0 items-center gap-2 md:gap-3">
           <span
             aria-hidden="true"
             className={cn(
-              "flex size-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold sm:size-12",
+              "flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold md:size-12",
               getAvatarColor(testimonial.id),
             )}
           >
             {getInitials(testimonial.displayName)}
           </span>
           <div className="min-w-0">
-            <p className="break-words text-sm font-semibold leading-5 text-white">
+            <p className="break-words text-base font-semibold leading-5 text-white md:text-sm">
               {testimonial.displayName}
             </p>
-            <p className="break-words text-xs leading-5 text-primary-100">
+            <p className="break-words text-[13px] leading-5 text-primary-100 md:text-xs">
               {testimonial.relationship} · {testimonial.location}
             </p>
           </div>
         </div>
 
-        <span className="inline-flex shrink-0 self-start whitespace-nowrap rounded-pill bg-sage-100 px-3 py-1 text-xs font-semibold leading-5 text-sage-900 sm:self-end">
+        <span className="inline-flex shrink-0 self-start whitespace-nowrap rounded-pill bg-sage-100 px-2.5 py-0.5 text-[12px] font-semibold leading-5 text-sage-900 md:self-end md:px-3 md:py-1 md:text-xs">
           {testimonial.course}
         </span>
       </div>
@@ -149,7 +155,7 @@ function TestimonialRow({
       <div
         className={cn(
           "swq-testimonial-track-wrapper",
-          slow && "-translate-x-40 sm:-translate-x-48",
+          slow && "-translate-x-24 md:-translate-x-48",
         )}
       >
         <div
@@ -158,14 +164,14 @@ function TestimonialRow({
             slow && "swq-testimonial-track--slow",
           )}
         >
-          <div className="swq-testimonial-track-group flex shrink-0 gap-6 pr-6">
+          <div className="swq-testimonial-track-group flex shrink-0 gap-4 pr-4 md:gap-6 md:pr-6">
             {items.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />
             ))}
           </div>
           <div
             aria-hidden="true"
-            className="swq-testimonial-track-group flex shrink-0 gap-6 pr-6"
+            className="swq-testimonial-track-group flex shrink-0 gap-4 pr-4 md:gap-6 md:pr-6"
           >
             {items.map((testimonial) => (
               <TestimonialCard
@@ -210,7 +216,7 @@ export function HomeTestimonials() {
       id="testimonials"
       aria-labelledby="testimonials-heading"
       surface="white"
-      className="overflow-hidden border-y border-border"
+      className="isolate overflow-hidden border-y border-border pb-16 md:pb-section-tablet lg:pb-section-desktop"
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
@@ -232,7 +238,7 @@ export function HomeTestimonials() {
         </p>
       </div>
 
-      <div className="relative mt-16 space-y-6">
+      <div className="relative mt-10 space-y-4 md:mt-16 md:space-y-6">
         <TestimonialRow
           items={testimonials.slice(0, 4)}
           label="Testimonials row one"

@@ -7,7 +7,7 @@ export function HomeFaq() {
     <Section
       id="faq"
       aria-labelledby="faq-heading"
-      surface="canvas"
+      surface="white"
       className="border-t border-border"
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-x-20">

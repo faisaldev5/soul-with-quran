@@ -44,7 +44,7 @@ function FactCard({
   return (
     <Card
       as="div"
-      className={cn("z-10 flex max-w-[15rem] gap-3 p-4", className)}
+      className={cn("z-floating flex max-w-[15rem] gap-3 p-4", className)}
     >
       <span
         aria-hidden="true"
@@ -203,11 +203,11 @@ export function HomeHero() {
 
             <FactCard
               {...factCards[0]}
-              className="!absolute !z-20 right-1 top-[12%] w-[12.8rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:right-2 min-[375px]:w-[14rem] md:right-2 md:top-[10%] md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-right-8 lg:top-[14%] lg:!z-10 xl:-right-10 xl:top-[15%]"
+              className="!absolute right-1 top-[12%] w-[12.8rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:right-2 min-[375px]:w-[14rem] md:right-2 md:top-[10%] md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-right-8 lg:top-[14%] xl:-right-10 xl:top-[15%]"
             />
             <FactCard
               {...factCards[1]}
-              className="!absolute !z-20 bottom-6 left-[10px] w-[13.5rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:bottom-7 min-[375px]:left-4 min-[375px]:w-[14.5rem] md:bottom-10 md:left-4 md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-left-10 lg:!z-10 lg:bottom-[10%] xl:-left-12 xl:bottom-[12%]"
+              className="!absolute bottom-6 left-[10px] w-[13.5rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:bottom-7 min-[375px]:left-4 min-[375px]:w-[14.5rem] md:bottom-10 md:left-4 md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-left-10 lg:bottom-[10%] xl:-left-12 xl:bottom-[12%]"
             />
           </div>
         </div>

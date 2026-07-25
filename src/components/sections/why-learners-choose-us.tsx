@@ -79,7 +79,7 @@ export function WhyLearnersChooseUs() {
     >
       <Container>
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16">
-          <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <div className="min-w-0 lg:sticky lg:top-[var(--swq-sticky-content-offset)] lg:self-start">
             <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
               Why learners choose us
             </p>

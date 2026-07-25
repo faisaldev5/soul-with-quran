@@ -12,7 +12,7 @@ export function FinalTrialCta() {
       aria-labelledby="final-trial-cta-heading"
       surface="canvas"
       withContainer={false}
-      className="border-t border-border"
+      className="border-t border-border bg-background"
     >
       <Container>
         <div className="relative isolate min-h-[30rem] overflow-hidden rounded-large border border-primary-500 shadow-medium sm:min-h-[32rem] lg:min-h-[34rem]">

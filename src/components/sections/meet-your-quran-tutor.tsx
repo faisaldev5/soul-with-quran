@@ -99,7 +99,7 @@ export function MeetYourQuranTutor() {
                   />
                 </div>
 
-                <div className="relative z-10 aspect-[5/7] w-full overflow-hidden rounded-large border border-white/80 bg-sage-50 shadow-large">
+                <div className="relative z-base aspect-[5/7] w-full overflow-hidden rounded-large border border-white/80 bg-sage-50 shadow-large">
                   <Image
                     src="/images/tutor/tutor.webp"
                     alt="Online Quran tutor"
@@ -111,7 +111,7 @@ export function MeetYourQuranTutor() {
 
                 <Card
                   as="div"
-                  className="!absolute bottom-[-1rem] left-3 z-20 flex w-[13rem] max-w-[calc(100%_-_1rem)] gap-3 p-4 shadow-medium lg:bottom-8 lg:left-[-1.5rem]"
+                  className="!absolute bottom-[-1rem] left-3 z-floating flex w-[13rem] max-w-[calc(100%_-_1rem)] gap-3 p-4 shadow-medium lg:bottom-8 lg:left-[-1.5rem]"
                 >
                   <span
                     aria-hidden="true"
