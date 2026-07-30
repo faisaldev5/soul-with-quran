@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -80,42 +81,47 @@ export function WhyLearnersChooseUs() {
       <Container>
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16">
           <div className="min-w-0 lg:sticky lg:top-[var(--swq-sticky-content-offset)] lg:self-start">
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
-              Why learners choose us
-            </p>
-            <h2
-              id="why-learners-choose-us-heading"
-              className="mt-4 max-w-[13ch] text-balance text-4xl leading-[1.08] md:text-5xl md:leading-[1.04] lg:text-6xl"
-            >
-              A learning experience that feels personal, {" "}
-              <span className="font-normal italic text-text-secondary">
-                because it is.
-              </span>
-            </h2>
-            <p className="mt-6 max-w-supporting text-base leading-7 text-text-secondary md:text-lg md:leading-8">
-              SoulWithQuran combines patient teaching, personal guidance, and a
-              consistent learning routine for children and adults.
-            </p>
-            <ButtonLink
-              href="/free-trial"
-              icon={<ArrowRight aria-hidden="true" className="size-4" />}
-              className="mt-7"
-            >
-              Book a free trial
-            </ButtonLink>
+            <Reveal>
+              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
+                Why learners choose us
+              </p>
+              <h2
+                id="why-learners-choose-us-heading"
+                className="mt-4 max-w-[13ch] text-balance text-4xl leading-[1.08] md:text-5xl md:leading-[1.04] lg:text-6xl"
+              >
+                A learning experience that feels personal, {" "}
+                <span className="font-normal italic text-text-secondary">
+                  because it is.
+                </span>
+              </h2>
+              <p className="mt-6 max-w-supporting text-base leading-7 text-text-secondary md:text-lg md:leading-8">
+                SoulWithQuran combines patient teaching, personal guidance, and a
+                consistent learning routine for children and adults.
+              </p>
+              <ButtonLink
+                href="/free-trial"
+                icon={<ArrowRight aria-hidden="true" className="size-4" />}
+                className="mt-7"
+              >
+                Book a free trial
+              </ButtonLink>
+            </Reveal>
           </div>
 
           <div className="min-w-0 space-y-6">
-            <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
-              {benefits.map((benefit) => (
-                <BenefitCard key={benefit.title} {...benefit} />
-              ))}
-            </div>
+            <Reveal>
+              <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
+                {benefits.map((benefit) => (
+                  <BenefitCard key={benefit.title} {...benefit} />
+                ))}
+              </div>
+            </Reveal>
 
-            <aside
-              aria-label="Class format"
-              className="rounded-large bg-primary-600 p-6 text-text-inverse shadow-medium md:p-8 lg:p-10"
-            >
+            <Reveal delay={70}>
+              <aside
+                aria-label="Class format"
+                className="rounded-large bg-primary-600 p-6 text-text-inverse shadow-medium md:p-8 lg:p-10"
+              >
               <div className="grid gap-8 md:grid-cols-3 md:gap-0">
                 {facts.map((fact, index) => (
                   <div
@@ -149,7 +155,8 @@ export function WhyLearnersChooseUs() {
                   Book a free trial
                 </ButtonLink>
               </div>
-            </aside>
+              </aside>
+            </Reveal>
           </div>
         </div>
       </Container>

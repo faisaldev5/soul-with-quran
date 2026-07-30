@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -15,7 +16,7 @@ export function FinalTrialCta() {
       className="border-t border-border bg-background"
     >
       <Container>
-        <div className="relative isolate min-h-[30rem] overflow-hidden rounded-large border border-primary-500 shadow-medium sm:min-h-[32rem] lg:min-h-[34rem]">
+        <Reveal className="relative isolate min-h-[30rem] overflow-hidden rounded-large border border-primary-500 shadow-medium sm:min-h-[32rem] lg:min-h-[34rem]" delay={60}>
           <Image
             src="/images/homepage/quran-study-desk.jpg"
             alt=""
@@ -60,7 +61,7 @@ export function FinalTrialCta() {
               </ButtonLink>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

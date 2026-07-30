@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -57,34 +58,38 @@ export function MeetYourQuranTutor() {
         <div className="relative isolate">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-x-20 lg:gap-y-4">
             <div className="lg:col-start-2 lg:row-start-1">
-              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
-                Meet your Quran tutor
-              </p>
-              <span
-                aria-hidden="true"
-                className="mt-3 block h-0.5 w-10 bg-gold-500"
-              />
-              <h2
-                id="meet-your-quran-tutor-heading"
-                className="mt-5 max-w-[17ch] text-balance text-4xl leading-[1.08] md:text-5xl md:leading-[1.04] lg:text-5xl"
-              >
-                Patient, personal guidance
-                <span className="block font-normal italic text-text-secondary">
-                  for every stage of learning.
-                </span>
-              </h2>
+              <Reveal>
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
+                  Meet your Quran tutor
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="mt-3 block h-0.5 w-10 bg-gold-500"
+                />
+                <h2
+                  id="meet-your-quran-tutor-heading"
+                  className="mt-5 max-w-[17ch] text-balance text-4xl leading-[1.08] md:text-5xl md:leading-[1.04] lg:text-5xl"
+                >
+                  Patient, personal guidance
+                  <span className="block font-normal italic text-text-secondary">
+                    for every stage of learning.
+                  </span>
+                </h2>
+              </Reveal>
             </div>
 
             <div className="lg:col-start-2 lg:row-start-2">
-              <h3 className="text-xl font-semibold leading-7 text-primary-700 md:text-2xl">
-                Your dedicated Quran tutor
-              </h3>
-              <p className="mt-1 text-base leading-6 text-text-secondary">
-                Patient, structured online guidance
-              </p>
+              <Reveal delay={50}>
+                <h3 className="text-xl font-semibold leading-7 text-primary-700 md:text-2xl">
+                  Your dedicated Quran tutor
+                </h3>
+                <p className="mt-1 text-base leading-6 text-text-secondary">
+                  Patient, structured online guidance
+                </p>
+              </Reveal>
             </div>
 
-            <div className="relative flex justify-center pb-14 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:items-center lg:pb-0">
+            <Reveal className="relative flex justify-center pb-14 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:items-center lg:pb-0" variant="fade-right">
               <div className="relative w-full max-w-[30rem]">
                 <div
                   aria-hidden="true"
@@ -129,9 +134,9 @@ export function MeetYourQuranTutor() {
                   </div>
                 </Card>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-start-2 lg:row-start-3">
+            <Reveal className="lg:col-start-2 lg:row-start-3" delay={70}>
               <p className="max-w-reading text-base leading-7 text-text-secondary md:text-lg md:leading-8">
                 SoulWithQuran lessons are taught with patience, structure, and
                 personal attention, helping children and adults learn at a
@@ -202,7 +207,7 @@ export function MeetYourQuranTutor() {
                 </div>
               </Card>
 
-            </div>
+            </Reveal>
           </div>
         </div>
       </Container>

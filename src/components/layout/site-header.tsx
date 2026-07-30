@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
+import { StickyHeader } from "@/components/layout/sticky-header";
 import { Logo } from "@/components/brand/logo";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -8,7 +9,7 @@ import { primaryNavigation } from "@/data/navigation";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-header isolate border-b border-border bg-background">
+    <StickyHeader>
       <Container className="flex min-h-[var(--swq-site-header-height)] items-center justify-between gap-6">
         <Link href="/" aria-label="SoulWithQuran home" className="shrink-0">
           <Logo
@@ -38,6 +39,6 @@ export function SiteHeader() {
 
         <MobileNavigation />
       </Container>
-    </header>
+    </StickyHeader>
   );
 }

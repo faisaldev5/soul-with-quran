@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
@@ -45,45 +46,47 @@ export function PricingTrial() {
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-16 xl:gap-20">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-gold-300">
-            Pricing &amp; free trial
-          </p>
-          <h2
-            id="pricing-trial-heading"
-            className="mt-4 max-w-[19ch] text-balance text-4xl leading-[1.08] text-white md:text-5xl md:leading-[1.04]"
-          >
-            Simple monthly pricing,
-            <span className="block font-normal italic text-sage-300">
-              with a free trial to begin.
-            </span>
-          </h2>
-          <p className="mt-6 max-w-supporting text-base leading-7 text-primary-100 md:text-lg md:leading-8">
-            One clear monthly price for every course, with regular live lessons
-            and personal guidance for each learner.
-          </p>
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-gold-300">
+              Pricing &amp; free trial
+            </p>
+            <h2
+              id="pricing-trial-heading"
+              className="mt-4 max-w-[19ch] text-balance text-4xl leading-[1.08] text-white md:text-5xl md:leading-[1.04]"
+            >
+              Simple monthly pricing,
+              <span className="block font-normal italic text-sage-300">
+                with a free trial to begin.
+              </span>
+            </h2>
+            <p className="mt-6 max-w-supporting text-base leading-7 text-primary-100 md:text-lg md:leading-8">
+              One clear monthly price for every course, with regular live lessons
+              and personal guidance for each learner.
+            </p>
+          </Reveal>
 
-          <div
-            aria-label="Pricing facts"
-            className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5"
-          >
-            {pricingFacts.map((fact) => (
-              <div
-                key={fact.label}
-                className="rounded-large border border-primary-400 bg-primary-500 p-5"
-              >
-                <p className="text-sm leading-6 text-primary-100">{fact.label}</p>
-                <p className="mt-2 text-lg font-semibold leading-7 text-white">
-                  {fact.value}
-                </p>
-              </div>
-            ))}
+          <div aria-label="Pricing facts" className="mt-10">
+            <Reveal className="grid gap-4 sm:grid-cols-2 sm:gap-5" delay={60}>
+              {pricingFacts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="rounded-large border border-primary-400 bg-primary-500 p-5"
+                >
+                  <p className="text-sm leading-6 text-primary-100">{fact.label}</p>
+                  <p className="mt-2 text-lg font-semibold leading-7 text-white">
+                    {fact.value}
+                  </p>
+                </div>
+              ))}
+            </Reveal>
           </div>
         </div>
 
-        <article
-          aria-labelledby="pricing-plan-heading"
-          className="rounded-large border border-neutral-200 bg-background p-6 text-primary-600 shadow-medium sm:p-8 lg:p-10"
-        >
+        <Reveal className="h-full" delay={70}>
+          <article
+            aria-labelledby="pricing-plan-heading"
+            className="h-full rounded-large border border-neutral-200 bg-background p-6 text-primary-600 shadow-medium sm:p-8 lg:p-10"
+          >
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
@@ -136,7 +139,8 @@ export function PricingTrial() {
           <p className="mt-4 text-center text-sm leading-6 text-text-secondary">
             Available for children and adults across all five courses.
           </p>
-        </article>
+          </article>
+        </Reveal>
       </div>
     </Section>
   );

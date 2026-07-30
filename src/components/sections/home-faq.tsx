@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { faqs } from "@/data/faqs";
@@ -11,7 +12,8 @@ export function HomeFaq() {
       className="border-t border-border"
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-x-20">
-        <div className="max-w-[22rem] lg:self-start">
+        <Reveal className="max-w-[22rem] lg:self-start">
+          <div>
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
             Questions
           </p>
@@ -28,9 +30,10 @@ export function HomeFaq() {
           <ButtonLink href="/contact" variant="secondary" className="mt-8">
             Ask a question
           </ButtonLink>
-        </div>
+          </div>
+        </Reveal>
 
-        <div className="border-t border-border">
+        <Reveal className="border-t border-border">
           {faqs.map((faq) => (
             <details key={faq.question} className="group border-b border-border">
               <summary className="flex min-h-24 cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg leading-7 text-primary-700 transition-colors duration-normal ease-swq-out marker:hidden hover:text-primary-800 motion-reduce:transition-none md:min-h-28 md:py-7 md:text-xl md:leading-8 lg:text-2xl lg:leading-9 [&::-webkit-details-marker]:hidden">
@@ -43,12 +46,12 @@ export function HomeFaq() {
                   <span className="absolute h-4 w-px bg-current transition-transform duration-normal ease-swq-out group-open:scale-y-0 motion-reduce:transition-none" />
                 </span>
               </summary>
-              <div className="pb-6 pr-16 text-base leading-7 text-text-secondary md:pb-7 md:text-lg md:leading-8">
+              <div className="origin-top translate-y-1 pb-6 pr-16 text-base leading-7 text-text-secondary opacity-0 transition-[opacity,transform] duration-toggle ease-swq-out group-open:translate-y-0 group-open:opacity-100 motion-reduce:opacity-100 motion-reduce:transition-none md:pb-7 md:text-lg md:leading-8">
                 <p>{faq.answer}</p>
               </div>
             </details>
           ))}
-        </div>
+        </Reveal>
       </div>
     </Section>
   );

@@ -1,4 +1,5 @@
 import { Section } from "@/components/ui/section";
+import { Reveal } from "@/components/motion/reveal";
 import {
   developmentPreviewTestimonials,
   verifiedTestimonials,
@@ -148,7 +149,7 @@ function TestimonialRow({
   return (
     <div
       aria-label={label}
-      className="swq-testimonial-row overflow-hidden focus-visible:outline-3 focus-visible:outline-gold-300 focus-visible:outline-offset-2"
+      className="swq-testimonial-row w-full min-w-0 max-w-full overflow-x-clip focus-visible:outline-3 focus-visible:outline-gold-300 focus-visible:outline-offset-2"
       role="region"
       tabIndex={0}
     >
@@ -218,7 +219,7 @@ export function HomeTestimonials() {
       surface="white"
       className="isolate overflow-hidden border-y border-border pb-16 md:pb-section-tablet lg:pb-section-desktop"
     >
-      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+      <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
           Testimonials
         </p>
@@ -236,9 +237,9 @@ export function HomeTestimonials() {
             ? "Previewing how verified learner and family feedback will appear."
             : "Real experiences from learners and families receiving patient, personal Quran guidance."}
         </p>
-      </div>
+      </Reveal>
 
-      <div className="relative mt-10 space-y-4 md:mt-16 md:space-y-6">
+      <Reveal className="relative mt-10 space-y-4 md:mt-16 md:space-y-6" variant="fade">
         <TestimonialRow
           items={testimonials.slice(0, 4)}
           label="Testimonials row one"
@@ -248,7 +249,7 @@ export function HomeTestimonials() {
           label="Testimonials row two"
           slow
         />
-      </div>
+      </Reveal>
     </Section>
   );
 }

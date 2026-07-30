@@ -40,7 +40,7 @@ function buttonClasses({
   loading,
 }: ButtonStyleProps & { className?: string }) {
   return cn(
-    "inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-pill px-5 py-2 text-sm font-semibold leading-6 transition-[background-color,border-color,color,box-shadow,transform] duration-normal ease-swq-out motion-reduce:transition-none",
+    "group inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-pill px-5 py-2 text-sm font-semibold leading-6 transition-[background-color,border-color,color,box-shadow,transform] duration-normal ease-swq-out active:translate-y-px motion-reduce:transition-none motion-reduce:active:translate-y-0",
     variantClasses[variant],
     "disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-100 disabled:text-neutral-500 disabled:no-underline disabled:shadow-none disabled:transition-none disabled:hover:bg-neutral-100 disabled:active:bg-neutral-100",
     loading && "cursor-wait",
@@ -64,16 +64,27 @@ function ButtonContent({
   ) : (
     icon
   );
+  const renderedIcon = iconNode ? (
+    <span
+      className={cn(
+        "inline-flex transition-transform duration-micro ease-swq-out motion-reduce:transition-none",
+        iconPosition === "end" &&
+          "group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5",
+      )}
+    >
+      {iconNode}
+    </span>
+  ) : null;
 
   return iconPosition === "start" ? (
     <>
-      {iconNode}
+      {renderedIcon}
       <span>{children}</span>
     </>
   ) : (
     <>
       <span>{children}</span>
-      {iconNode}
+      {renderedIcon}
     </>
   );
 }

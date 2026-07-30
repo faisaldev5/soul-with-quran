@@ -44,7 +44,10 @@ function FactCard({
   return (
     <Card
       as="div"
-      className={cn("z-floating flex max-w-[15rem] gap-3 p-4", className)}
+      className={cn(
+        "swq-hero-fact-card z-floating flex max-w-[15rem] gap-3 p-4",
+        className,
+      )}
     >
       <span
         aria-hidden="true"
@@ -137,16 +140,15 @@ export function HomeHero() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-32 size-[32rem] rounded-full bg-gold-100/25 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-48 -left-40 size-[28rem] rounded-full bg-sage-100/25 blur-3xl"
-      />
+        className="pointer-events-none absolute inset-0 overflow-x-clip"
+      >
+        <div className="absolute -right-40 -top-32 size-[32rem] rounded-full bg-gold-100/25 blur-3xl" />
+        <div className="absolute -bottom-48 -left-40 size-[28rem] rounded-full bg-sage-100/25 blur-3xl" />
+      </div>
 
       <Container className="relative">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:items-center lg:gap-12 xl:gap-16">
-          <div className="min-w-0 max-w-2xl lg:pt-2">
+          <div className="swq-hero-entrance swq-hero-entrance--up min-w-0 max-w-2xl lg:pt-2">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sage-700">
               <span aria-hidden="true" className="text-gold-500">
                 •
@@ -190,7 +192,7 @@ export function HomeHero() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-4 -z-10 rounded-large bg-gold-100/25 blur-2xl"
             />
-            <div className="relative aspect-[5/6] overflow-hidden rounded-large border border-white/70 shadow-large">
+            <div className="swq-hero-entrance swq-hero-entrance--side swq-hero-delay-1 relative aspect-[5/6] overflow-hidden rounded-large border border-white/70 shadow-large">
               <Image
                 src="/images/homepage/hero-online-quran-class.jpg"
                 alt="Learner studying the Quran during an online lesson"
@@ -203,11 +205,11 @@ export function HomeHero() {
 
             <FactCard
               {...factCards[0]}
-              className="!absolute right-1 top-[12%] w-[12.8rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:right-2 min-[375px]:w-[14rem] md:right-2 md:top-[10%] md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-right-8 lg:top-[14%] xl:-right-10 xl:top-[15%]"
+              className="swq-hero-delay-2 !absolute right-1 top-[12%] w-[12.8rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:right-2 min-[375px]:w-[14rem] md:right-2 md:top-[10%] md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-right-8 lg:top-[14%] xl:-right-10 xl:top-[15%]"
             />
             <FactCard
               {...factCards[1]}
-              className="!absolute bottom-6 left-[10px] w-[13.5rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:bottom-7 min-[375px]:left-4 min-[375px]:w-[14.5rem] md:bottom-10 md:left-4 md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-left-10 lg:bottom-[10%] xl:-left-12 xl:bottom-[12%]"
+              className="swq-hero-delay-2 !absolute bottom-6 left-[10px] w-[13.5rem] max-w-[calc(100%_-_2rem)] !gap-2 !p-3 min-[375px]:bottom-7 min-[375px]:left-4 min-[375px]:w-[14.5rem] md:bottom-10 md:left-4 md:w-auto md:max-w-[15rem] md:!gap-3 md:!p-4 lg:-left-10 lg:bottom-[10%] xl:-left-12 xl:bottom-[12%]"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -100,7 +101,7 @@ export function CoursesOverview() {
       surface="canvas"
     >
       <Container>
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
+        <Reveal className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
           <SectionHeading
             eyebrow="COURSES"
             heading={
@@ -119,24 +120,26 @@ export function CoursesOverview() {
             From first steps in reading to Tajweed, memorisation, and Islamic
             Studies, each course is taught with patient, personal guidance.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3">
-          {courses.map((course) => {
-            const isTajweed = course.name === "Tajweed";
+        <Reveal className="mt-14" delay={60}>
+          <div className="grid gap-6 md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3">
+            {courses.map((course) => {
+              const isTajweed = course.name === "Tajweed";
 
-            return (
-              <CourseCard
-                key={course.href}
-                course={course}
-                navy={isTajweed}
-                className={
-                  isTajweed ? "lg:col-start-3 lg:row-span-2" : undefined
-                }
-              />
-            );
-          })}
-        </div>
+              return (
+                <CourseCard
+                  key={course.href}
+                  course={course}
+                  navy={isTajweed}
+                  className={
+                    isTajweed ? "lg:col-start-3 lg:row-span-2" : undefined
+                  }
+                />
+              );
+            })}
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );
