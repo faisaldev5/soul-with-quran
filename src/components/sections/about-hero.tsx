@@ -10,7 +10,7 @@ export function AboutHero() {
   return (
     <Section
       aria-labelledby="about-hero-heading"
-      className="relative isolate overflow-hidden border-b border-border"
+      className="relative isolate overflow-hidden border-b border-border !py-12 md:!py-14 lg:!py-16"
       spacing="compact"
       withContainer={false}
     >

@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { tutorProfile } from "@/content/tutor-profile";
 import { courses } from "@/data/courses";
 import { cn } from "@/lib/cn";
 
@@ -106,8 +107,8 @@ export function MeetYourQuranTutor() {
 
                 <div className="relative z-base aspect-[5/7] w-full overflow-hidden rounded-large border border-white/80 bg-sage-50 shadow-large">
                   <Image
-                    src="/images/tutor/tutor.webp"
-                    alt="Online Quran tutor"
+                    src={tutorProfile.image}
+                    alt={tutorProfile.imageAlt}
                     fill
                     sizes="(min-width: 1024px) 34vw, (min-width: 768px) 70vw, 100vw"
                     className="object-cover object-center"
@@ -129,7 +130,7 @@ export function MeetYourQuranTutor() {
                       Personal guidance
                     </h3>
                     <p className="mt-1 text-xs leading-5 text-text-secondary">
-                      One-to-one and carefully matched groups
+                      {tutorProfile.lessonFormat}
                     </p>
                   </div>
                 </Card>

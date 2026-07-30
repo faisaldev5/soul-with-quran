@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { AboutHero } from "@/components/sections/about-hero";
+import { MeetYourQuranTutorAbout } from "@/components/sections/meet-your-quran-tutor-about";
 
 export const metadata: Metadata = {
   title: "About SoulWithQuran",
@@ -9,5 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutHero />;
+  return (
+    <>
+      <AboutHero />
+      <MeetYourQuranTutorAbout />
+    </>
+  );
 }
