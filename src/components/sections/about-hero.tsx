@@ -10,13 +10,13 @@ export function AboutHero() {
   return (
     <Section
       aria-labelledby="about-hero-heading"
-      className="relative isolate overflow-hidden border-b border-border !py-12 md:!py-14 lg:!py-16"
+      className="relative isolate overflow-hidden border-b border-border !py-10 md:!py-14 lg:!py-16"
       spacing="compact"
       withContainer={false}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 h-56 w-full sm:h-64 lg:inset-y-0 lg:h-auto lg:w-[68%]"
+        className="pointer-events-none absolute right-0 top-0 h-[18rem] w-full sm:h-72 lg:inset-y-0 lg:h-auto lg:w-[68%]"
       >
         <Image
           src="/images/about/about-hero-quran.webp"
@@ -27,7 +27,7 @@ export function AboutHero() {
           className="object-cover object-[78%_center] opacity-80 lg:opacity-100"
         />
         <div className="absolute inset-0 bg-primary-950/15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-transparent lg:bg-gradient-to-r lg:from-background lg:via-background/90 lg:to-background/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background lg:bg-gradient-to-r lg:from-background lg:via-background/90 lg:to-background/10" />
       </div>
 
       <Container className="relative z-10">

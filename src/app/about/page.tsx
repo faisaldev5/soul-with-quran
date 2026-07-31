@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { AboutHero } from "@/components/sections/about-hero";
+import { AboutTeachingApproach } from "@/components/sections/about-teaching-approach";
 import { MeetYourQuranTutorAbout } from "@/components/sections/meet-your-quran-tutor-about";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function AboutPage() {
     <>
       <AboutHero />
       <MeetYourQuranTutorAbout />
+      <AboutTeachingApproach />
     </>
   );
 }
