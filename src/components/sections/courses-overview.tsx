@@ -15,6 +15,10 @@ type CourseCardProps = {
   className?: string;
 };
 
+type CoursesOverviewProps = {
+  surface?: "canvas" | "white";
+};
+
 function CourseCard({ className, course, navy = false }: CourseCardProps) {
   return (
     <Card
@@ -93,12 +97,14 @@ function CourseCard({ className, course, navy = false }: CourseCardProps) {
   );
 }
 
-export function CoursesOverview() {
+export function CoursesOverview({
+  surface = "canvas",
+}: CoursesOverviewProps) {
   return (
     <Section
       id="courses-overview"
       aria-labelledby="courses-overview-heading"
-      surface="canvas"
+      surface={surface}
     >
       <Container>
         <Reveal className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
