@@ -41,7 +41,7 @@ export function CoursesLearningPath() {
       <Container>
         <Reveal className="rounded-large border border-primary-100 bg-primary-50/70 px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-11">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sage-700">
+            <p className="mx-auto w-fit text-center text-xs font-semibold uppercase tracking-[0.16em] text-sage-700">
               A SMOOTH LEARNING EXPERIENCE
             </p>
             <h2
