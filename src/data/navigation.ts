@@ -26,9 +26,9 @@ export const primaryNavigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ] satisfies readonly NavigationItem[];
 
@@ -47,9 +47,9 @@ export const footerLinkGroups = [
     title: "Quick links",
     links: [
       { label: "About", href: "/about" },
-      { label: "Testimonials", href: "/testimonials" },
+      { label: "Testimonials", href: "/#testimonials" },
       { label: "Blog", href: "/blog" },
-      { label: "FAQ", href: "/faq" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {

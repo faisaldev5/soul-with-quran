@@ -255,6 +255,7 @@
   html {
     min-width: 320px;
     background: var(--swq-background);
+    scroll-behavior: smooth;
   }
 
   body {
