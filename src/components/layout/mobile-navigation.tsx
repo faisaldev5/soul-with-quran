@@ -125,7 +125,7 @@ export function MobileNavigation() {
                     className={cn(buttonClassName("primary"), "mt-8 w-full")}
                     onClick={closeMenu}
                   >
-                    Book a free trial
+                    Request a free trial
                   </Link>
                 </nav>
               </Container>
