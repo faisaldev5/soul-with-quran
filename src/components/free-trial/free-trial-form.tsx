@@ -529,9 +529,9 @@ export function FreeTrialForm() {
           </div>
         </div>
         {currentStep === totalSteps && (
-          <div>
-            <p className="text-center text-sm leading-6 text-text-secondary">We’ll review your request and reply within 24 hours.</p>
-            <p className="mt-3 text-center text-xs leading-5 text-text-muted">We’ll only use these details to arrange your requested trial.</p>
+          <div className="mx-auto w-full text-center">
+            <p className="mx-auto w-full text-center text-sm leading-6 text-text-secondary">We’ll review your request and reply within 24 hours.</p>
+            <p className="mx-auto mt-3 w-full text-center text-xs leading-5 text-text-muted">We’ll only use these details to arrange your requested trial.</p>
           </div>
         )}
       </form>

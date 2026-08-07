@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-import { buildAdminNotificationEmail, buildVisitorAcknowledgementEmail } from "@/lib/email/free-trial-emails";
-import { isTrialFieldName, trialRequestSchema } from "@/lib/free-trial-schema";
-import { TURNSTILE_ACTION } from "@/lib/turnstile";
+import { contactRequestSchema, isContactFieldName } from "@/lib/contact-schema";
+import { buildAdminNotificationEmail, buildVisitorAcknowledgementEmail } from "@/lib/email/contact-emails";
+import { CONTACT_TURNSTILE_ACTION } from "@/lib/turnstile";
 import { verifyTurnstileToken } from "@/lib/turnstile-verify";
 
 export async function POST(request: Request) {
@@ -35,14 +35,14 @@ export async function POST(request: Request) {
 
   const { turnstileToken, ...formPayload } = payload as Record<string, unknown>;
 
-  const parsed = trialRequestSchema.safeParse(formPayload);
+  const parsed = contactRequestSchema.safeParse(formPayload);
 
   if (!parsed.success) {
     const fieldErrors: Record<string, string> = {};
 
     for (const issue of parsed.error.issues) {
       const field = issue.path[0];
-      if (typeof field === "string" && isTrialFieldName(field) && !(field in fieldErrors)) {
+      if (typeof field === "string" && isContactFieldName(field) && !(field in fieldErrors)) {
         fieldErrors[field] = issue.message;
       }
     }
@@ -69,10 +69,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const turnstileOutcome = await verifyTurnstileToken(turnstileToken, TURNSTILE_ACTION);
+  const turnstileOutcome = await verifyTurnstileToken(turnstileToken, CONTACT_TURNSTILE_ACTION);
 
   if (turnstileOutcome === "service_unavailable") {
-    console.error("free-trial: turnstile siteverify request failed");
+    console.error("contact: turnstile siteverify request failed");
     return NextResponse.json(
       {
         ok: false,
@@ -84,12 +84,12 @@ export async function POST(request: Request) {
   }
 
   if (turnstileOutcome === "config_error") {
-    console.error("free-trial: missing turnstile secret configuration");
+    console.error("contact: missing turnstile secret configuration");
     return NextResponse.json(
       {
         ok: false,
         code: "SERVER_CONFIG_ERROR",
-        message: "We couldn’t send your request right now. Please try again.",
+        message: "We couldn’t send your message right now. Please try again.",
       },
       { status: 500 },
     );
@@ -106,15 +106,15 @@ export async function POST(request: Request) {
     );
   }
 
-  const { RESEND_API_KEY, RESEND_FROM_EMAIL, FREE_TRIAL_RECIPIENT_EMAIL } = process.env;
+  const { RESEND_API_KEY, RESEND_FROM_EMAIL, CONTACT_EMAIL } = process.env;
 
-  if (!RESEND_API_KEY || !RESEND_FROM_EMAIL || !FREE_TRIAL_RECIPIENT_EMAIL) {
-    console.error("free-trial: missing required email configuration");
+  if (!RESEND_API_KEY || !RESEND_FROM_EMAIL || !CONTACT_EMAIL) {
+    console.error("contact: missing required email configuration");
     return NextResponse.json(
       {
         ok: false,
         code: "SERVER_CONFIG_ERROR",
-        message: "We couldn’t send your request right now. Please try again.",
+        message: "We couldn’t send your message right now. Please try again.",
       },
       { status: 500 },
     );
@@ -134,7 +134,7 @@ export async function POST(request: Request) {
       // `data.email` is already Zod-validated (proper email format) above.
       resend.emails.send({
         from: RESEND_FROM_EMAIL,
-        to: FREE_TRIAL_RECIPIENT_EMAIL,
+        to: CONTACT_EMAIL,
         replyTo: data.email,
         subject: admin.subject,
         html: admin.html,
@@ -145,31 +145,31 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: RESEND_FROM_EMAIL,
         to: data.email,
-        replyTo: FREE_TRIAL_RECIPIENT_EMAIL,
+        replyTo: CONTACT_EMAIL,
         subject: visitor.subject,
         html: visitor.html,
         text: visitor.text,
       }),
     ]);
   } catch {
-    console.error("free-trial: email delivery threw an exception");
+    console.error("contact: email delivery threw an exception");
     return NextResponse.json(
       {
         ok: false,
         code: "EMAIL_DELIVERY_ERROR",
-        message: "We couldn’t send your request right now. Please try again.",
+        message: "We couldn’t send your message right now. Please try again.",
       },
       { status: 500 },
     );
   }
 
   if (adminResult.error || visitorResult.error) {
-    console.error("free-trial: email delivery was rejected by Resend");
+    console.error("contact: email delivery was rejected by Resend");
     return NextResponse.json(
       {
         ok: false,
         code: "EMAIL_DELIVERY_ERROR",
-        message: "We couldn’t send your request right now. Please try again.",
+        message: "We couldn’t send your message right now. Please try again.",
       },
       { status: 500 },
     );
@@ -178,7 +178,7 @@ export async function POST(request: Request) {
   return NextResponse.json(
     {
       ok: true,
-      message: "Free trial request sent successfully.",
+      message: "Message sent successfully.",
     },
     { status: 200 },
   );
