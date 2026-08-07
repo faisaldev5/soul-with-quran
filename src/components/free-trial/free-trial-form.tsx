@@ -21,6 +21,8 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FieldErrorText, Input, Label, Textarea } from "@/components/ui/form-controls";
 import { stepDefinitions, useTrialStep, type FormStep } from "@/components/free-trial/trial-step-context";
+import { TurnstileWidget } from "@/components/free-trial/turnstile-widget";
+import { TURNSTILE_ACTION, TURNSTILE_TEST_SITE_KEY } from "@/lib/turnstile";
 
 const defaultValues: TrialFormValues = {
   contactName: "",
@@ -88,11 +90,9 @@ type ChoiceCardsFieldProps = {
   columnsClassName: string;
 };
 
-function mockSubmitTrialRequest() {
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, 650);
-  });
-}
+type FreeTrialApiResponse =
+  | { ok: true; message: string }
+  | { ok: false; code: string; message: string; fieldErrors?: Record<string, string> };
 
 function formatDate(value: string) {
   const date = new Date(`${value}T00:00:00`);
@@ -109,10 +109,18 @@ const stepFieldMap: Record<FormStep, TrialFieldName[]> = {
 
 const totalSteps = stepDefinitions.length;
 
+// Cloudflare's official test key always passes and is safe to use outside
+// production; the real site key is only used in production builds.
+const turnstileSiteKey =
+  process.env.NODE_ENV === "production" ? process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY : TURNSTILE_TEST_SITE_KEY;
+
 export function FreeTrialForm() {
   const [success, setSuccess] = useState<TrialFormValues | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileInstanceKey, setTurnstileInstanceKey] = useState(0);
   const { currentStep, goToStep: setSharedStep } = useTrialStep();
+  const [turnstileTrackedStep, setTurnstileTrackedStep] = useState<FormStep>(currentStep);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const stepHeadingRef = useRef<HTMLHeadingElement>(null);
   const shouldFocusStepRef = useRef(false);
@@ -140,6 +148,15 @@ export function FreeTrialForm() {
     shouldFocusStepRef.current = false;
     window.requestAnimationFrame(() => stepHeadingRef.current?.focus());
   }, [currentStep, success]);
+
+  // The Turnstile widget only exists on Step 4. Adjust state during render
+  // (React's recommended alternative to an effect here) so any navigation
+  // away from Step 4 — including jumps triggered by the progress indicator —
+  // clears a stale token before the next render commits.
+  if (currentStep !== turnstileTrackedStep) {
+    setTurnstileTrackedStep(currentStep);
+    if (currentStep !== totalSteps) setTurnstileToken(null);
+  }
 
   const getError = (field: TrialFieldName) => {
     const message = errors[field]?.message;
@@ -273,6 +290,11 @@ export function FreeTrialForm() {
     if (currentStep > 1) goToStep((currentStep - 1) as FormStep);
   };
 
+  const resetTurnstile = () => {
+    setTurnstileToken(null);
+    setTurnstileInstanceKey((key) => key + 1);
+  };
+
   const onSubmit = async (values: TrialFormValues) => {
     clearErrors();
     setFormError(null);
@@ -291,11 +313,55 @@ export function FreeTrialForm() {
       return;
     }
 
+    if (!turnstileToken) {
+      setFormError("Please complete the security check and try again.");
+      return;
+    }
+
     try {
-      await mockSubmitTrialRequest();
-      setSuccess(parsed.data);
+      const response = await fetch("/api/free-trial", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...parsed.data, turnstileToken }),
+      });
+
+      let payload: FreeTrialApiResponse | null = null;
+      try {
+        payload = (await response.json()) as FreeTrialApiResponse;
+      } catch {
+        payload = null;
+      }
+
+      if (response.ok && payload?.ok) {
+        setSuccess(parsed.data);
+        return;
+      }
+
+      if (response.status === 422 && payload && !payload.ok && payload.code === "VALIDATION_ERROR" && payload.fieldErrors) {
+        let firstInvalidField: TrialFieldName | null = null;
+        for (const [field, message] of Object.entries(payload.fieldErrors)) {
+          if (isTrialFieldName(field)) {
+            if (!firstInvalidField) firstInvalidField = field;
+            setError(field, { type: "server", message });
+          }
+        }
+        if (firstInvalidField) window.requestAnimationFrame(() => setFocus(firstInvalidField));
+        setFormError("Please check the highlighted fields and try again.");
+        resetTurnstile();
+        return;
+      }
+
+      if (payload && !payload.ok && (payload.code === "TURNSTILE_REQUIRED" || payload.code === "TURNSTILE_FAILED")) {
+        setFormError("Please complete the security check and try again.");
+        resetTurnstile();
+        return;
+      }
+
+      setFormError("We couldn’t send your request right now. Please try again.");
+      resetTurnstile();
     } catch {
-      setFormError("We couldn’t send your request right now. Please check the form and try again.");
+      setFormError("We couldn’t send your request right now. Please try again.");
+      resetTurnstile();
     }
   };
 
@@ -421,6 +487,24 @@ export function FreeTrialForm() {
                 <div><dt className="text-text-muted">Preferred day and time</dt><dd className="mt-1 font-medium text-text-primary">{watchedValues.preferredDay ? formatDate(watchedValues.preferredDay) : "Not selected"}{watchedValues.preferredTime ? ` · ${watchedValues.preferredTime}` : ""}</dd></div>
               </dl>
             </section>
+
+            <div>
+              <p className="mb-2 text-sm font-semibold text-text-primary">Security check</p>
+              {turnstileSiteKey ? (
+                <TurnstileWidget
+                  key={turnstileInstanceKey}
+                  siteKey={turnstileSiteKey}
+                  action={TURNSTILE_ACTION}
+                  onVerify={setTurnstileToken}
+                  onExpire={() => setTurnstileToken(null)}
+                  onError={() => setTurnstileToken(null)}
+                />
+              ) : (
+                <p role="alert" className="text-sm leading-6 text-error">
+                  The security check is temporarily unavailable. Please try again later.
+                </p>
+              )}
+            </div>
           </div>
         )}
 
@@ -438,7 +522,7 @@ export function FreeTrialForm() {
                 Continue
               </Button>
             ) : (
-              <Button className="w-full" disabled={formState.isSubmitting} loading={formState.isSubmitting} type="submit" icon={<ArrowRight aria-hidden="true" className="size-4" />}>
+              <Button className="w-full" disabled={formState.isSubmitting || !turnstileToken} loading={formState.isSubmitting} type="submit" icon={<ArrowRight aria-hidden="true" className="size-4" />}>
                 {formState.isSubmitting ? "Sending your request…" : "Request my free trial"}
               </Button>
             )}
