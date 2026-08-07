@@ -33,7 +33,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <ButtonLink href="/free-trial" className="ml-1 shrink-0">
-            Book a free trial
+            Request a free trial
           </ButtonLink>
         </nav>
 
