@@ -73,6 +73,7 @@ export const footerPolicyLinks = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Cookies", href: "/cookies" },
+  { label: "Safeguarding", href: "/safeguarding" },
 ] satisfies readonly NavigationItem[];
 
 // The requested platforms are approved for display; destinations remain unset until provided.

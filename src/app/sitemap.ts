@@ -7,7 +7,7 @@ import { siteUrl } from "@/lib/site";
 // actually exists — an unfinished route in the sitemap is a worse SEO signal
 // than omitting it.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/courses", "/free-trial", "/contact", "/privacy", "/terms", "/cookies"];
+  const staticRoutes = ["", "/about", "/courses", "/free-trial", "/contact", "/privacy", "/terms", "/cookies", "/safeguarding"];
 
   const courseRoutes = courseSlugs.map((slug) => `/courses/${slug}`);
 
