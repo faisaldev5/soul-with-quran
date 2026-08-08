@@ -134,7 +134,7 @@ export function PricingTrial() {
             icon={<ArrowRight aria-hidden="true" className="size-4" />}
             className="mt-8 w-full !border-gold-500 !bg-gold-500 !text-primary-950 hover:!border-gold-400 hover:!bg-gold-400 hover:!text-primary-950 focus-visible:outline-gold-300"
           >
-            Book a free trial
+            Request a free trial
           </ButtonLink>
           <p className="mt-4 text-center text-sm leading-6 text-text-secondary">
             Available for children and adults across all five courses.

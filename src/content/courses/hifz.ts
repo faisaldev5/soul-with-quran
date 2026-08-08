@@ -234,6 +234,6 @@ export const hifzCourse = {
   finalCta: {
     heading: "Begin your Hifz learning journey.",
     description:
-      "Book a free trial so we can understand the learner’s current memorisation and revision stage.",
+      "Request a free trial so we can understand the learner’s current memorisation and revision stage.",
   },
 } satisfies CourseDetail;

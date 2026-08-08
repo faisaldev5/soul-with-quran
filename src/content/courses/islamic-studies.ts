@@ -234,6 +234,6 @@ export const islamicStudiesCourse = {
   finalCta: {
     heading: "Begin your Islamic Studies learning journey.",
     description:
-      "Book a free trial so we can understand the learner’s current knowledge and recommend a suitable starting point.",
+      "Request a free trial so we can understand the learner’s current knowledge and recommend a suitable starting point.",
   },
 } satisfies CourseDetail;

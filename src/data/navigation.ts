@@ -64,7 +64,7 @@ export const footerLinkGroups = [
     title: "Contact",
     links: [
       { label: "Contact", href: "/contact" },
-      { label: "Book a free trial", href: "/free-trial" },
+      { label: "Request a free trial", href: "/free-trial" },
     ],
   },
 ] satisfies readonly FooterLinkGroup[];

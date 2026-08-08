@@ -72,7 +72,7 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
                 icon={<ArrowRight aria-hidden="true" className="size-4" />}
                 className="w-full sm:w-auto"
               >
-                Book a free trial
+                Request a free trial
               </ButtonLink>
               <ButtonLink
                 href="/courses"

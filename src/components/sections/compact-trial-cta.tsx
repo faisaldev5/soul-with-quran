@@ -49,7 +49,7 @@ export function CompactTrialCta({
           icon={<ArrowRight aria-hidden="true" className="size-4" />}
           className="w-full sm:w-auto lg:w-full lg:min-w-36"
         >
-          Book a free trial
+          Request a free trial
         </ButtonLink>
         <Link
           href="/contact"

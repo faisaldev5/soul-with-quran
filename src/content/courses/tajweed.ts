@@ -234,6 +234,6 @@ export const tajweedCourse = {
   finalCta: {
     heading: "Begin your Tajweed learning journey.",
     description:
-      "Book a free trial so we can understand the learner’s current recitation stage and recommend the right focus.",
+      "Request a free trial so we can understand the learner’s current recitation stage and recommend the right focus.",
   },
 } satisfies CourseDetail;

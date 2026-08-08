@@ -234,6 +234,6 @@ export const nazraCourse = {
   finalCta: {
     heading: "Begin your Nazra learning journey.",
     description:
-      "Book a free trial so we can understand the learner’s current reading stage and recommend the right next step.",
+      "Request a free trial so we can understand the learner’s current reading stage and recommend the right next step.",
   },
 } satisfies CourseDetail;

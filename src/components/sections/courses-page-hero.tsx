@@ -37,7 +37,7 @@ export function CoursesPageHero() {
                 icon={<ArrowRight aria-hidden="true" className="size-4" />}
                 className="w-full !bg-gold-500 px-6 !text-primary-950 hover:!bg-gold-400 active:!bg-gold-600 sm:w-auto"
               >
-                Book a free trial
+                Request a free trial
               </ButtonLink>
               <ButtonLink
                 href="/courses#course-paths"

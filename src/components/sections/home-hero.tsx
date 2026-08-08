@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Check, Clock3, List, Star } from "lucide-react";
+import { ArrowRight, Check, Clock3, List } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -87,25 +87,9 @@ function HeroProof() {
             </span>
           ))}
         </div>
-        <div>
-          <div
-            role="img"
-            aria-label="Five-star rating"
-            className="flex items-center gap-0.5 text-gold-500"
-          >
-            {Array.from({ length: 5 }, (_, index) => (
-              <Star
-                key={index}
-                aria-hidden="true"
-                className="size-3.5 fill-current"
-                strokeWidth={1.5}
-              />
-            ))}
-          </div>
-          <p className="mt-0.5 text-xs leading-5 text-text-secondary">
-            500+ families across 5 countries
-          </p>
-        </div>
+        <p className="text-sm font-semibold leading-5 text-text-primary">
+          Children and adults, learning together
+        </p>
       </div>
 
       <span aria-hidden="true" className="hidden h-10 w-px bg-border sm:block" />
@@ -119,10 +103,10 @@ function HeroProof() {
         </span>
         <div>
           <p className="text-sm font-semibold leading-5 text-text-primary">
-            Certified Ijazah tutor
+            Patient, structured teaching
           </p>
           <p className="mt-0.5 text-xs leading-5 text-text-secondary">
-            12+ years of experience
+            One-to-one and carefully matched small groups
           </p>
         </div>
       </div>
@@ -174,7 +158,7 @@ export function HomeHero() {
                 icon={<ArrowRight aria-hidden="true" className="size-4" />}
                 className="w-full px-6 shadow-small hover:shadow-hover sm:w-auto sm:min-w-[10.5rem]"
               >
-                Book a free trial
+                Request a free trial
               </ButtonLink>
               <ButtonLink
                 href="/courses"

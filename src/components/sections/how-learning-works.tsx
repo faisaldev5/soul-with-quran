@@ -103,7 +103,7 @@ export function HowLearningWorks() {
               icon={<ArrowRight aria-hidden="true" className="size-4" />}
               className="w-full shrink-0 !border-gold-500 !bg-gold-500 !text-primary-950 hover:!border-gold-400 hover:!bg-gold-400 hover:!text-primary-950 focus-visible:outline-gold-300 md:w-auto"
             >
-              Book a free trial
+              Request a free trial
             </ButtonLink>
           </div>
         </Reveal>

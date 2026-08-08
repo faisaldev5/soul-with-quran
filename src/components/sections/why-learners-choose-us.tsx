@@ -103,7 +103,7 @@ export function WhyLearnersChooseUs() {
                 icon={<ArrowRight aria-hidden="true" className="size-4" />}
                 className="mt-7"
               >
-                Book a free trial
+                Request a free trial
               </ButtonLink>
             </Reveal>
           </div>
@@ -152,7 +152,7 @@ export function WhyLearnersChooseUs() {
                   icon={<ArrowRight aria-hidden="true" className="size-4" />}
                   className="shrink-0 !text-gold-300 hover:!text-gold-200 focus-visible:outline-gold-300"
                 >
-                  Book a free trial
+                  Request a free trial
                 </ButtonLink>
               </div>
               </aside>

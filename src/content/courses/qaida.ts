@@ -233,6 +233,6 @@ export const qaidaCourse = {
   finalCta: {
     heading: "Begin your Qaida learning journey.",
     description:
-      "Book a free trial so we can understand the learner’s current stage and recommend the right starting point.",
+      "Request a free trial so we can understand the learner’s current stage and recommend the right starting point.",
   },
 } satisfies CourseDetail;

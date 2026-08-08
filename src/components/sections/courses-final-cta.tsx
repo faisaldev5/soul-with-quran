@@ -20,7 +20,7 @@ export function CoursesFinalCta({
         <CompactTrialCta
           id="courses-final-cta-heading"
           heading="Begin with the right learning path."
-          description="Book a free trial and discover the most suitable course for the learner's current stage and goals."
+          description="Request a free trial and discover the most suitable course for the learner's current stage and goals."
         />
       </Container>
     </Section>
