@@ -12,10 +12,10 @@ export function CoursesPageHero() {
       aria-labelledby="courses-page-hero-heading"
       spacing="compact"
       withContainer={false}
-      className="relative isolate overflow-hidden border-b border-border !py-0"
+      className="relative isolate -mt-[var(--swq-site-header-height)] overflow-hidden border-b border-border !py-0 lg:-mt-[98px]"
     >
-      <div className="relative isolate min-h-[30rem] sm:min-h-[31rem] lg:min-h-[30rem]">
-        <Container className="relative z-10 flex min-h-[30rem] items-center py-12 md:min-h-[31rem] md:py-14 lg:min-h-[30rem] lg:py-0">
+      <div className="relative isolate min-h-[calc(30rem+var(--swq-site-header-height))] sm:min-h-[calc(31rem+var(--swq-site-header-height))] lg:min-h-[calc(30rem+98px)]">
+        <Container className="relative z-10 flex min-h-[calc(30rem+var(--swq-site-header-height))] items-center pt-[calc(3rem+var(--swq-site-header-height))] pb-12 md:min-h-[calc(31rem+var(--swq-site-header-height))] md:pt-[calc(3.5rem+var(--swq-site-header-height))] md:pb-14 lg:min-h-[calc(30rem+98px)] lg:pt-[98px] lg:pb-0">
           <Reveal className="max-w-2xl lg:max-w-[46%]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage-700 sm:text-sm">
               ONLINE QURAN COURSES

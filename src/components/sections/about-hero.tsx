@@ -10,12 +10,12 @@ export function AboutHero() {
   return (
     <Section
       aria-labelledby="about-hero-heading"
-      className="relative isolate overflow-hidden border-b border-border !py-0"
+      className="relative isolate -mt-[var(--swq-site-header-height)] overflow-hidden border-b border-border !py-0 lg:-mt-[98px]"
       spacing="compact"
       withContainer={false}
     >
-      <div className="relative isolate min-h-[32rem] sm:min-h-[34rem] lg:min-h-[32rem]">
-        <Container className="relative z-10 flex min-h-[32rem] items-center py-14 md:min-h-[34rem] md:py-16 lg:min-h-[32rem] lg:py-0">
+      <div className="relative isolate min-h-[calc(32rem+var(--swq-site-header-height))] sm:min-h-[calc(34rem+var(--swq-site-header-height))] lg:min-h-[calc(32rem+98px)]">
+        <Container className="relative z-10 flex min-h-[calc(32rem+var(--swq-site-header-height))] items-center pt-[calc(3.5rem+var(--swq-site-header-height))] pb-14 md:min-h-[calc(34rem+var(--swq-site-header-height))] md:pt-[calc(4rem+var(--swq-site-header-height))] md:pb-16 lg:min-h-[calc(32rem+98px)] lg:pt-[98px] lg:pb-0">
           <Reveal className="max-w-xl lg:max-w-[48%]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage-200 sm:text-sm">
               ABOUT SOULWITHQURAN

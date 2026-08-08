@@ -32,6 +32,14 @@ export const primaryNavigation = [
   { label: "Contact", href: "/contact" },
 ] satisfies readonly NavigationItem[];
 
+export const coursesNavigation = [
+  { label: "Qaida", href: "/courses/qaida" },
+  { label: "Nazra", href: "/courses/nazra" },
+  { label: "Tajweed", href: "/courses/tajweed" },
+  { label: "Hifz", href: "/courses/hifz" },
+  { label: "Islamic Studies", href: "/courses/islamic-studies" },
+] satisfies readonly NavigationItem[];
+
 export const footerLinkGroups = [
   {
     title: "Courses",

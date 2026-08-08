@@ -104,7 +104,7 @@
   --swq-focus-ring-on-navy: var(--swq-gold-300);
   --swq-focus-offset: var(--swq-surface);
 
-  --swq-site-header-height: 4.5rem;
+  --swq-site-header-height: 90px;
   --swq-sticky-content-offset: calc(var(--swq-site-header-height) + 1rem);
   --swq-scroll-margin-top: var(--swq-sticky-content-offset);
 
@@ -486,18 +486,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.swq-sticky-header {
-  transition:
-    background-color var(--swq-motion-duration-base) var(--swq-motion-ease-standard),
-    border-color var(--swq-motion-duration-base) var(--swq-motion-ease-standard),
-    box-shadow var(--swq-motion-duration-base) var(--swq-motion-ease-standard);
-}
-
-.swq-sticky-header[data-sticky-state="scrolled"] {
-  border-bottom-color: var(--swq-neutral-300);
-  background-color: var(--swq-surface);
-  box-shadow: var(--swq-shadow-small);
-}
+/*
+ * The Header itself stays fully transparent at every scroll position — only
+ * the floating rounded nav container (rendered inside it) carries a surface,
+ * border, and shadow. `data-sticky-state` is kept for any future scroll-aware
+ * styling but is not used to paint the Header background anymore.
+ */
 
 [data-swq-reveal] {
   transition:

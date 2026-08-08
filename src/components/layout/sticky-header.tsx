@@ -33,7 +33,7 @@ export function StickyHeader({ children }: { children: ReactNode }) {
       <header
         data-swq-sticky-header="true"
         data-sticky-state={isScrolled ? "scrolled" : "top"}
-        className="sticky top-0 z-header isolate border-b border-border bg-background swq-sticky-header"
+        className="sticky top-0 z-header isolate bg-transparent swq-sticky-header"
       >
         {children}
       </header>
