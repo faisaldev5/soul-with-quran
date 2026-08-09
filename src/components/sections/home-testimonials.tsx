@@ -218,7 +218,7 @@ export function HomeTestimonials() {
       id="testimonials"
       aria-labelledby="testimonials-heading"
       surface="white"
-      className="isolate overflow-hidden border-y border-border pb-16 md:pb-section-tablet lg:pb-section-desktop"
+      className="isolate overflow-hidden border-y border-border pb-16 scroll-mt-[100px] md:pb-section-tablet lg:scroll-mt-[112px] lg:pb-section-desktop"
     >
       <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700">
