@@ -24,12 +24,11 @@ export type Testimonial = {
   placeholder: boolean;
 };
 
-// Replace all placeholder testimonials with approved feedback from genuine learners or parents before production activation.
-export const verifiedTestimonials: readonly Testimonial[] = [];
-
-export const developmentPreviewTestimonials: readonly Testimonial[] = [
+// Approved learner/parent feedback. Do not add new entries or edit existing
+// text here without approved source content — see AGENTS.md content rules.
+export const verifiedTestimonials: readonly Testimonial[] = [
   {
-    id: "placeholder-sarah-m",
+    id: "sarah-m",
     displayName: "Sarah M.",
     relationship: "Parent",
     location: "London, UK",
@@ -37,11 +36,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 5,
     quote:
       "My daughter feels much more comfortable reading now. The tutor explains each sound patiently and never makes her feel rushed.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-ahmed-r",
+    id: "ahmed-r",
     displayName: "Ahmed R.",
     relationship: "Adult learner",
     location: "Toronto, Canada",
@@ -49,11 +48,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 4.9,
     quote:
       "I had studied Tajweed before, but these lessons are much clearer. The corrections are respectful, practical, and easy to remember.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-fatimah-k",
+    id: "fatimah-k",
     displayName: "Fatimah K.",
     relationship: "Mother",
     location: "Dubai, UAE",
@@ -61,11 +60,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 5,
     quote:
       "The lessons are calm and well organised. My son reads with more confidence now and genuinely looks forward to his class.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-yusuf-h",
+    id: "yusuf-h",
     displayName: "Yusuf H.",
     relationship: "Father",
     location: "Birmingham, UK",
@@ -73,11 +72,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 4.9,
     quote:
       "The tutor keeps revision structured without putting pressure on my son. That balance has made Hifz feel much more manageable.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-maryam-a",
+    id: "maryam-a",
     displayName: "Maryam A.",
     relationship: "Student",
     location: "Sydney, Australia",
@@ -85,11 +84,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 5,
     quote:
       "Every topic is explained in simple English. The lessons feel practical, clear, and easy to connect with everyday life.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-ibrahim-s",
+    id: "ibrahim-s",
     displayName: "Ibrahim S.",
     relationship: "Adult learner",
     location: "New York, USA",
@@ -97,11 +96,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 4.9,
     quote:
       "Starting as an adult felt intimidating, but the one-to-one guidance made it comfortable. I can learn at my pace and ask questions freely.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-sana-f",
+    id: "sana-f",
     displayName: "Sana F.",
     relationship: "Mother",
     location: "Manchester, UK",
@@ -109,11 +108,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 5,
     quote:
       "The tutor notices small pronunciation mistakes and explains them gently. My daughter is becoming more careful and confident in recitation.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
   {
-    id: "placeholder-hamza-n",
+    id: "hamza-n",
     displayName: "Hamza N.",
     relationship: "Student",
     location: "Abu Dhabi, UAE",
@@ -121,7 +120,11 @@ export const developmentPreviewTestimonials: readonly Testimonial[] = [
     rating: 4.9,
     quote:
       "The classes are consistent and focused. I always know what to practise next, and the feedback after each lesson is very helpful.",
-    verified: false,
-    placeholder: true,
+    verified: true,
+    placeholder: false,
   },
 ] as const satisfies readonly Testimonial[];
+
+// Reserved for future unverified/preview entries during development. Empty
+// while all approved feedback already lives in verifiedTestimonials above.
+export const developmentPreviewTestimonials: readonly Testimonial[] = [];

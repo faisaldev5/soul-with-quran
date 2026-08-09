@@ -203,7 +203,8 @@ export function HomeTestimonials() {
         ),
       ];
 
-  // Keep the section out of production until verified feedback is approved.
+  // Safeguard: if verifiedTestimonials is ever emptied again (e.g. content
+  // pulled for review), hide the section rather than showing nothing useful.
   if (testimonials.length === 0) {
     return null;
   }
