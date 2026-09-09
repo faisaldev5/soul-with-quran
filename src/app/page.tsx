@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { CoursesOverview } from "@/components/sections/courses-overview";
 import { FinalTrialCta } from "@/components/sections/final-trial-cta";
 import { HomeHero } from "@/components/sections/home-hero";
@@ -7,6 +9,27 @@ import { HomeTestimonials } from "@/components/sections/home-testimonials";
 import { MeetYourQuranTutor } from "@/components/sections/meet-your-quran-tutor";
 import { PricingTrial } from "@/components/sections/pricing-trial";
 import { WhyLearnersChooseUs } from "@/components/sections/why-learners-choose-us";
+
+const title = "Online Quran Classes for Children and Adults | SoulWithQuran";
+const description =
+  "Join live online Quran classes for children and adults, with patient tutor-led guidance, one-to-one teaching, and carefully matched small groups.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
+};
 
 export default function Home() {
   return (

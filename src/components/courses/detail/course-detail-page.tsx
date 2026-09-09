@@ -8,6 +8,7 @@ import { CourseLessonFormat } from "@/components/courses/detail/course-lesson-fo
 import { RelatedCourses } from "@/components/courses/detail/related-courses";
 import { CourseTutorPreview } from "@/components/courses/detail/course-tutor-preview";
 import type { CourseDetail } from "@/content/courses/types";
+import { siteUrl } from "@/lib/site";
 
 type CourseDetailPageProps = {
   course: CourseDetail;
@@ -23,7 +24,7 @@ function CourseStructuredData({ course }: CourseDetailPageProps) {
       name: breadcrumb.label,
       ...(breadcrumb.href
         ? {
-            item: breadcrumb.href,
+            item: new URL(breadcrumb.href, siteUrl).toString(),
           }
         : {}),
     })),

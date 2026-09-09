@@ -57,7 +57,7 @@ export function FinalTrialCta() {
                 icon={<ArrowRight aria-hidden="true" className="size-4" />}
                 className="mt-8 w-full !border-gold-500 !bg-gold-500 !text-primary-950 shadow-medium hover:!border-gold-400 hover:!bg-gold-400 hover:!text-primary-950 hover:shadow-large focus-visible:outline-gold-300 sm:w-auto"
               >
-                Book your free trial
+                Request your free trial
               </ButtonLink>
             </div>
           </div>

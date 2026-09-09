@@ -9,8 +9,15 @@ import {
   footerSocialLinks,
 } from "@/data/navigation";
 
+function hasSocialDestination(
+  socialLink: (typeof footerSocialLinks)[number],
+): socialLink is (typeof footerSocialLinks)[number] & { href: string } {
+  return typeof socialLink.href === "string" && socialLink.href.length > 0;
+}
+
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
+  const activeSocialLinks = footerSocialLinks.filter(hasSocialDestination);
 
   return (
     <footer data-surface="navy" className="bg-primary-600 text-white">
@@ -55,31 +62,20 @@ export function SiteFooter() {
                   </li>
                 ))}
               </ul>
-              {group.title === "Contact" && footerSocialLinks.length > 0 ? (
+              {group.title === "Contact" && activeSocialLinks.length > 0 ? (
                 <div className="mt-6 flex flex-wrap gap-2" aria-label="Social media">
-                  {footerSocialLinks.map((socialLink) =>
-                    socialLink.href ? (
-                      <a
-                        key={socialLink.label}
-                        href={socialLink.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={socialLink.label}
-                        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary-400 text-primary-100 transition-colors duration-micro ease-swq-out hover:border-white hover:text-white motion-reduce:transition-none"
-                      >
-                        <SocialIcon name={socialLink.icon} />
-                      </a>
-                    ) : (
-                      <span
-                        key={socialLink.label}
-                        role="img"
-                        aria-label={socialLink.label}
-                        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary-400 text-primary-100"
-                      >
-                        <SocialIcon name={socialLink.icon} />
-                      </span>
-                    ),
-                  )}
+                  {activeSocialLinks.map((socialLink) => (
+                    <a
+                      key={socialLink.label}
+                      href={socialLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={socialLink.label}
+                      className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary-400 text-primary-100 transition-colors duration-micro ease-swq-out hover:border-white hover:text-white motion-reduce:transition-none"
+                    >
+                      <SocialIcon name={socialLink.icon} />
+                    </a>
+                  ))}
                 </div>
               ) : null}
             </div>

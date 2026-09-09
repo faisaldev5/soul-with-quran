@@ -13,6 +13,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...courseRoutes].map((path) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(),
   }));
 }

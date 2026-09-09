@@ -31,7 +31,7 @@ export const faqs = [
   {
     question: "Is a free trial available?",
     answer:
-      "Yes. You can book a free trial so we can understand the learner’s current stage, goals, and suitable learning path.",
+      "Yes. You can request a free trial so we can understand the learner’s current stage, goals, and suitable learning path.",
   },
   {
     question: "Do you teach learners outside the UK?",

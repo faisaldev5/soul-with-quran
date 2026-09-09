@@ -40,7 +40,7 @@ export function CoursesPageHero() {
                 Request a free trial
               </ButtonLink>
               <ButtonLink
-                href="/courses#course-paths"
+                href="/courses#courses-overview"
                 variant="secondary"
                 className="w-full bg-transparent px-6 sm:w-auto"
               >

@@ -6,9 +6,10 @@ import { AboutTeachingApproach } from "@/components/sections/about-teaching-appr
 import { MeetYourQuranTutorAbout } from "@/components/sections/meet-your-quran-tutor-about";
 
 export const metadata: Metadata = {
-  title: "About SoulWithQuran",
+  title: "About SoulWithQuran | Tutor-Led Quran Learning",
   description:
     "Learn about SoulWithQuran and its patient, structured approach to online Quran learning for children and adults.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

@@ -15,8 +15,8 @@ const supportSteps = [
   },
   {
     number: "3",
-    title: "Plan & Teacher Match",
-    description: "We recommend the right course and suitable teacher.",
+    title: "Learning Plan",
+    description: "We recommend the right course and lesson format.",
   },
   {
     number: "4",
@@ -26,7 +26,7 @@ const supportSteps = [
   {
     number: "5",
     title: "Ongoing Support",
-    description: "We track progress and provide regular updates to parents.",
+    description: "We review progress and adjust the learning plan when needed.",
   },
 ] as const;
 

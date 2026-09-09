@@ -7,7 +7,7 @@ export type LearningProcessStep = {
 export const learningProcessSteps = [
   {
     number: "01",
-    title: "Book a free trial",
+    title: "Request a free trial",
     description:
       "Choose the free-trial option and share the learner’s current needs and goals.",
   },
