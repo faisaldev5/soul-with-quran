@@ -9,6 +9,7 @@ import { HomeTestimonials } from "@/components/sections/home-testimonials";
 import { MeetYourQuranTutor } from "@/components/sections/meet-your-quran-tutor";
 import { PricingTrial } from "@/components/sections/pricing-trial";
 import { WhyLearnersChooseUs } from "@/components/sections/why-learners-choose-us";
+import { defaultSocialImage } from "@/lib/site";
 
 const title = "Online Quran Classes for Children and Adults | SoulWithQuran";
 const description =
@@ -23,11 +24,13 @@ export const metadata: Metadata = {
     description,
     url: "/",
     type: "website",
+    images: [defaultSocialImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
+    images: [defaultSocialImage],
   },
 };
 

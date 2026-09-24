@@ -8,20 +8,20 @@ export type LogoProps = {
   alt?: string;
   size?: LogoSize;
   className?: string;
-  priority?: boolean;
+  preload?: boolean;
   sizes?: string;
 };
 
 const logoSizes: Record<LogoSize, { width: number; height: number; className: string }> = {
-  sm: { width: 120, height: 40, className: "h-8 w-auto" },
-  md: { width: 168, height: 56, className: "h-10 w-auto" },
-  lg: { width: 216, height: 72, className: "h-12 w-auto" },
+  sm: { width: 120, height: 30, className: "h-auto w-[120px]" },
+  md: { width: 168, height: 42, className: "h-auto w-[168px]" },
+  lg: { width: 216, height: 54, className: "h-auto w-[216px]" },
 };
 
 export function Logo({
   alt = "SoulWithQuran",
   className,
-  priority = false,
+  preload = false,
   size = "md",
   sizes = "(min-width: 1024px) 216px, 168px",
 }: LogoProps) {
@@ -29,13 +29,13 @@ export function Logo({
 
   return (
     <Image
-      src="/brand/logos/logo-horizontal-primary.png"
+      src="/brand/logos/soulwithquran-logo-primary.png"
       alt={alt}
       width={dimensions.width}
       height={dimensions.height}
-      priority={priority}
+      preload={preload}
       sizes={sizes}
-      className={cn(dimensions.className, className)}
+      className={cn(className ?? dimensions.className)}
     />
   );
 }

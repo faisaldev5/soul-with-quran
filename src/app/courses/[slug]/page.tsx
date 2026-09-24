@@ -6,6 +6,7 @@ import {
   courseSlugs,
   getCourseBySlug,
 } from "@/content/courses";
+import { defaultSocialImage } from "@/lib/site";
 
 type CourseRouteProps = {
   params: Promise<{ slug: string }>;
@@ -38,11 +39,13 @@ export async function generateMetadata({
       description: course.seo.description,
       url: course.seo.canonical,
       type: "website",
+      images: [defaultSocialImage],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: course.seo.title,
       description: course.seo.description,
+      images: [defaultSocialImage],
     },
   };
 }

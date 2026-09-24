@@ -15,9 +15,11 @@ export function SiteHeader() {
         <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-pill border border-border/70 bg-surface px-6 py-2 shadow-small lg:px-8">
           <Link href="/" aria-label="SoulWithQuran home" className="shrink-0 justify-self-start">
             <Logo
+              alt=""
               size="md"
+              preload
               className="h-11 w-auto sm:h-12 lg:h-14"
-              sizes="(min-width: 1024px) 176px, (min-width: 640px) 152px, 136px"
+              sizes="(min-width: 1024px) 224px, (min-width: 640px) 192px, 176px"
             />
           </Link>
 

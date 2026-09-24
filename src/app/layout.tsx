@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import { SiteShell } from "@/components/layout/site-shell";
-import { siteUrl } from "@/lib/site";
+import { defaultSocialImage, siteUrl } from "@/lib/site";
 
 import "./globals.css";
 
@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   title: "SoulWithQuran",
   description:
     "Premium tutor-led online Quran learning for children and adults.",
+  openGraph: {
+    images: [defaultSocialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [defaultSocialImage],
+  },
 };
 
 export default function RootLayout({

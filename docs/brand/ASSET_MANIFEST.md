@@ -6,15 +6,19 @@ Raster-wrapper SVGs are not approved as genuine vector assets. Until true vector
 
 | Asset path | Asset type | Intended use | Approval status | Notes |
 | --- | --- | --- | --- | --- |
-| `public/brand/logos/logo-horizontal-primary.png` | Primary horizontal logo | Header, approved light surfaces | Approved PNG fallback | Tight horizontal canvas; navy artwork with gold details and transparency. |
-| `public/brand/logos/logo-horizontal-reversed.png` | Reversed horizontal logo | Footer or approved dark surfaces | Pending corrected asset | Current file was removed because the arrangement places the symbol on the right; a correct symbol-left, wordmark-right version is still required. |
-| `public/brand/logos/logo-primary.png` | Square-canvas horizontal logo | None | Removed duplicate | Replaced by the tightly cropped primary horizontal PNG. |
-| `public/brand/logos/*.svg` | Raster-wrapper SVGs | None until replaced | Pending genuine vector | Removed from production use because the files embed base64 PNG data. |
-| `public/brand/marks/mark-primary.png` | Primary brand mark | Compact logo contexts and application icon source | Approved PNG fallback | Transparent PNG; use without redrawing or altering the mark. |
-| `public/brand/marks/mark-reversed.png` | Reversed brand mark | Approved dark surfaces and compact contexts | Approved PNG fallback | White mark with retained gold details on transparency. |
-| `src/app/favicon.ico` | Traditional favicon | Browser tab fallback | Approved | Retained as the traditional Next.js favicon. |
-| `src/app/icon.png` | Application icon | Next.js application metadata icon | Approved | Retained as the 512px application icon. |
-| `src/app/apple-icon.png` | Apple touch icon | Apple home-screen icon | Approved | Retained as the 180px Apple icon. |
+| `public/brand/logos/soulwithquran-logo-primary.png` | Primary horizontal logo | Header and approved light surfaces | Approved PNG | 1600 x 400 transparent master; displayed at responsive header dimensions without distortion. |
+| `public/brand/logos/soulwithquran-white-primary.png` | Reversed horizontal logo | Footer and approved dark surfaces | Approved PNG | 1600 x 400 transparent master with white artwork. |
+| Supplied `public/brand/logos/*.svg` exports | Embedded brand-board images | None | Rejected for runtime use | Each SVG has a square viewBox and embeds the same large raster brand board rather than a clean horizontal logo; excluded from production until genuine vector exports are supplied. |
+| `public/brand/marks/mark-512x512.png` | Primary brand mark | Favicon and application icon source | Approved PNG | 512 x 512 transparent master; artwork padding is preserved in derivatives. |
+| `public/brand/marks/mark-512x512-white.png` | Reversed brand mark | Future approved dark-surface contexts | Approved PNG, currently unused | 512 x 512 transparent master with white artwork. |
+| `public/brand/icons/favicon-16x16.png` | Small favicon source | 16px ICO entry | Approved PNG | Supplied size-specific transparent raster. |
+| `public/brand/icons/favicon-32x32.png` | Standard favicon source | 32px ICO entry | Approved PNG | Supplied size-specific transparent raster. |
+| `public/brand/icons/favicon-48x48.png` | Large favicon source | 48px ICO entry | Approved PNG | Supplied size-specific transparent raster. |
+| `public/brand/social/og-default-1200x630.png` | Default social image | Open Graph and large Twitter card | Approved PNG | Production metadata uses the absolute canonical-domain URL. |
+| `public/brand/email/email-logo-600x150.png` | Email-safe horizontal logo | Contact and free-trial HTML emails | Approved PNG | Served from the canonical production URL and displayed at 200 x 50. |
+| `src/app/favicon.ico` | Multi-size favicon | Browser tab fallback | Generated from approved sources | Contains the supplied 16, 32, and 48px PNG entries. |
+| `src/app/icon.png` | Application icon | Next.js application metadata icon | Generated from approved source | 512 x 512 optimized PNG derived from the primary mark. |
+| `src/app/apple-icon.png` | Apple touch icon | Apple home-screen icon | Generated from approved source | 180 x 180 optimized PNG derived from the primary mark. |
 | `src/app/icon.svg` | Raster-wrapper application icon | None | Removed; pending genuine vector | PNG equivalent is retained. |
 | `public/images/homepage/hero-online-quran-class.jpg` | Homepage photograph | Hero online-learning scene | Approved | Portrait composition; preserve the learner, Quran, and laptop during responsive cropping. |
 | `public/images/homepage/child-learning-quran-online.jpg` | Homepage photograph | Learner or course-support section | Approved | Show the learner and study materials without inventing identity or relationship claims. |

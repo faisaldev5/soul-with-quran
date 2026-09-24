@@ -1,4 +1,5 @@
 import type { ContactFormValues } from "@/lib/contact-schema";
+import { emailLogoHtml } from "@/lib/email/branding";
 
 type EmailContent = {
   subject: string;
@@ -35,6 +36,7 @@ export function buildAdminNotificationEmail(data: ContactFormValues): EmailConte
 
   const html = `
     <div style="font-family: Arial, Helvetica, sans-serif; color: #2b2b2b;">
+      ${emailLogoHtml}
       <h2 style="color: #17324d;">New contact enquiry</h2>
       <table style="border-collapse: collapse; width: 100%; max-width: 560px;">
         ${rows
@@ -65,6 +67,7 @@ export function buildAdminNotificationEmail(data: ContactFormValues): EmailConte
 export function buildVisitorAcknowledgementEmail(data: ContactFormValues): EmailContent {
   const html = `
     <div style="font-family: Arial, Helvetica, sans-serif; color: #2b2b2b; line-height: 1.6;">
+      ${emailLogoHtml}
       <p>Dear ${escapeHtml(data.name)},</p>
       <p>Thank you for getting in touch with SoulWithQuran. We’ve received your message and will reply using the contact details you provided.</p>
       <table style="border-collapse: collapse; margin: 16px 0;">

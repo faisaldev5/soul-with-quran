@@ -27,18 +27,16 @@ export function SiteFooter() {
             <Link
               href="/"
               aria-label="SoulWithQuran home"
-              className="inline-flex items-center gap-3 rounded-medium"
+              className="inline-flex rounded-medium"
             >
               <Image
-                src="/brand/marks/mark-reversed.png"
-                alt="SoulWithQuran brand mark"
-                width={64}
-                height={64}
-                sizes="64px"
+                src="/brand/logos/soulwithquran-white-primary.png"
+                alt=""
+                width={216}
+                height={54}
+                sizes="216px"
+                className="h-auto w-[216px]"
               />
-              <span className="font-body text-lg font-semibold leading-7 text-white">
-                SoulWithQuran
-              </span>
             </Link>
             <p className="max-w-supporting text-sm leading-6 text-primary-100">
               Tutor-led online Quran learning for children and adults.

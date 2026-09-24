@@ -1,4 +1,5 @@
 import { courseOptions, type TrialFormValues } from "@/lib/free-trial-schema";
+import { emailLogoHtml } from "@/lib/email/branding";
 
 const courseRecommendationValue = courseOptions[courseOptions.length - 1];
 
@@ -72,6 +73,7 @@ export function buildAdminNotificationEmail(data: TrialFormValues): EmailContent
 
   const html = `
     <div style="font-family: Arial, Helvetica, sans-serif; color: #2b2b2b;">
+      ${emailLogoHtml}
       <h2 style="color: #17324d;">New free trial request</h2>
       <table style="border-collapse: collapse; width: 100%; max-width: 560px;">
         ${rows
@@ -97,6 +99,7 @@ export function buildVisitorAcknowledgementEmail(data: TrialFormValues): EmailCo
 
   const html = `
     <div style="font-family: Arial, Helvetica, sans-serif; color: #2b2b2b; line-height: 1.6;">
+      ${emailLogoHtml}
       <p>Dear ${escapeHtml(data.contactName)},</p>
       <p>Thank you for requesting a free trial with SoulWithQuran. We’ve received your details and will review the learner’s current stage, goals, and preferred availability. We’ll send the confirmed trial time and meeting link within 24 hours.</p>
       <p>The trial is completely free, lasts 20–30 minutes, and no payment is required.</p>
